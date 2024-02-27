@@ -13,6 +13,8 @@ class Viaje extends Model
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'identificador';
+
     protected $fillable = [
         'identificador',
         'fecha',
@@ -20,6 +22,21 @@ class Viaje extends Model
         'origen',
         'destino',
         'km',
-        'tarifa',
+        'tarifa', // No sé como poner aún tipo de tarifa
+        'vehiculo_id',
+        'conductor_id',
     ];
+   
+    public function vehiculo()
+    {
+        // Viaje tiene la clave ajena 'vehiculo_id'
+        return $this->belongsTo(Vehiculo::class);
+    }
+
+    public function conductor()
+    {
+        // Viaje tiene la clave ajena 'conductor_id'
+        return $this->belongsTo(Conductor::class);
+    }
+       
 }

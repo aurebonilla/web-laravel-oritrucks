@@ -13,8 +13,15 @@ class Vehiculo extends Model
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'matricula';
+
     protected $fillable = [
         'matricula',
-        'tipo',
+        'tipo', // No sé como poner aún tipo de vehículo
     ];
+
+    public function viajes()
+    {
+        return $this->hasMany(Viaje::class);
+    }
 }

@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vehiculos', function (Blueprint $table) {
-            $table->id();
-            $table->string('matricula');
-            $table->string('tipo');
+            $table->string('matricula')->primary();
+            $table->string('tipo'); // No sé como poner aún tipo de vehículo
         });
     }
 

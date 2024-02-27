@@ -14,14 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('viajes', function (Blueprint $table) {
-            $table->id();
-            $table->int('identificador');
+            $table->int('identificador')->primary();
             $table->date('fecha');
             $table->int('duracion');
             $table->string('origen');
             $table->string('destino');
             $table->int('km');
-            $table->string('tarifa');
+            $table->string('tarifa'); // No sé como poner aún tipo de tarifa
         });
     }
 

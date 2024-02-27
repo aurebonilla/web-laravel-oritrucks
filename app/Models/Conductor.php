@@ -13,6 +13,8 @@ class Conductor extends Model
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'dni';
+
     protected $fillable = [
         'nombre',
         'apellidos',
@@ -23,4 +25,9 @@ class Conductor extends Model
         'telefono',
         'foto_perfil',
     ];
+    
+    public function viajes()
+    {
+        return $this->hasMany(Viaje::class);
+    }
 }

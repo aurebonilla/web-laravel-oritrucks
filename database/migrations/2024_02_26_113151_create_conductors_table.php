@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('conductors', function (Blueprint $table) {
-            $table->id();
+            $table->string('dni')->primary();
             $table->string('nombre');
             $table->string('apellidos');
-            $table->string('dni');
             $table->date('fecha_nacimiento');
             $table->string('email');
             $table->string('carnet');
