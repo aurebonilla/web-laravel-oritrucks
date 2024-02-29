@@ -18,7 +18,9 @@ También se pretende añadir nuevas funcionalidades que permitan al administrado
 
 ## Aplicación de Gestión (INTRANET)
 La aplicación de gestión interna permite a los empleados acceder mediante unas credenciales válidas al sistema y realizar las siguientes operaciones:
+
 • Gestión de personal: consultas, administración y conductores.
+
 • Control de camiones, información de los mismos (fechas de revisión, próxima ITV, etc.)
 • Administración de la actividad empresarial, trayectos programados (vehículo y conductor) y solicitudes pendientes, pagos realizados y pendientes, etc..
 • Gestión de la clientela, almacenamiento de usuarios, servicio consumido, precio, fecha, etc..
