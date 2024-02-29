@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ConductorSeeder extends Seeder
 {
@@ -21,7 +22,12 @@ class ConductorSeeder extends Seeder
             'email'=> 'javier@garcia.com',
             'carnet'=> 'B',
             'telefono'=> '651789812',
-            'foto_perfil'=> 'foto']);
+            'foto_perfil'=> 'G01-01/storage/app/public/fotos/conductor1.png']);
+
+        $imagen1 = public_path('G01-01/storage/app/public/fotos/conductor1.png');
+        $nombreArchivo1 = 'conductor1.png';
+        Storage::put('public/fotos/'.$nombreArchivo1,file_get_contents($imagen1));
+
         DB::table('Conductor')->insert([
             'nombre' => 'Oscar',
             'apellidos' => 'Fernandez Sempere',
@@ -30,7 +36,12 @@ class ConductorSeeder extends Seeder
             'email'=> 'oscar@fernandez.com',
             'carnet'=> 'B',
             'telefono'=> '986281192',
-            'foto_perfil'=> 'foto']);
+            'foto_perfil'=> 'G01-01/storage/app/public/fotos/conductor2.png']);
+
+        $imagen2 = public_path('G01-01/storage/app/public/fotos/conductor2.png');
+        $nombreArchivo2 = 'conductor2.png';
+        Storage::put('public/fotos/'.$nombreArchivo2,file_get_contents($imagen2));
+
         DB::table('Conductor')->insert([
             'nombre' => 'Mario',
             'apellidos' => 'Pastor Sancho',
@@ -39,6 +50,10 @@ class ConductorSeeder extends Seeder
             'email'=> 'mario@pastor.com',
             'carnet'=> 'B',
             'telefono'=> '827551222',
-            'foto_perfil'=> 'foto']);
+            'foto_perfil'=> 'G01-01/storage/app/public/fotos/conductor3.png']);
+        
+            $imagen3 = public_path('G01-01/storage/app/public/fotos/conductor3.png');
+            $nombreArchivo3 = 'conductor3.png';
+            Storage::put('public/fotos/'.$nombreArchivo3,file_get_contents($imagen3));
        }
 }
