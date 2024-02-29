@@ -2,7 +2,12 @@
 
 namespace App\Enums;
 
-enum TarifaType: string {
-    case Estandar = 'estandar';
-    case Premium = 'premium';
+use Spatie\Enum\Enum;
+
+/**
+ * @method static self estandar()
+ * @method static self premium()
+ */
+final class TarifaType extends Enum
+{
 }

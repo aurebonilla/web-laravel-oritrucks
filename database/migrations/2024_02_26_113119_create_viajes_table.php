@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\TarifaType;
 
 return new class extends Migration
 {
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->integer('km');
             $table->string('vehiculo_id');
             $table->string('conductor_id');
-            $table->enum('tarifa', TarifaType::cases())->default(TarifaType::Estandar); // No sé como poner aún tipo de tarifa
+           $table->enum('tarifa', TarifaType::toArray())->default(TarifaType::estandar()); // No sé como poner aún tipo de tarifa
         });
     }
 

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Viaje', function (Blueprint $table) {
-            $table->string('conductor_id')->unique();
-            $table->foreign('conductor_id')->references('dni')->on('conductors');
+        Schema::table('viajes', function (Blueprint $table) {
+            if (!Schema::hasColumn('viajes', 'conductor_id')) {
+                $table->string('conductor_id')->unique();
+                $table->foreign('conductor_id')->references('dni')->on('conductors');
+            }
         });
     }
 
@@ -27,12 +29,12 @@ return new class extends Migration
     public function down()
     {
         // drop the keys
-        Schema::table('Viaje', function (Blueprint $table) {
+        Schema::table('viajes', function (Blueprint $table) {
             $table->dropForeign('viaje_conductor_id_foreign');
         });
 
         // drop the actual columns
-        Schema::table('Viaje', function (Blueprint $table) {
+        Schema::table('viajes', function (Blueprint $table) {
             $table->dropColumn('conductor_id');
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TarifaType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Viaje', function (Blueprint $table) {
-            $table->string('vehiculo_id')->unique();
-            $table->foreign('vehiculo_id')->references('matricula')->on('vehiculos');
+        Schema::table('viajes', function (Blueprint $table) {
+            if (!Schema::hasColumn('viajes', 'vehiculo_id')) {
+                $table->string('vehiculo_id')->unique();
+                $table->foreign('vehiculo_id')->references('matricula')->on('vehiculos');
+            }
         });
     }
 
@@ -27,12 +30,12 @@ return new class extends Migration
     public function down()
     {
         // drop the keys
-        Schema::table('Viaje', function (Blueprint $table) {
+        Schema::table('viajes', function (Blueprint $table) {
             $table->dropForeign('viaje_vehiculo_id_foreign');
         });
 
         // drop the actual columns
-        Schema::table('Viaje', function (Blueprint $table) {
+        Schema::table('viajes', function (Blueprint $table) {
             $table->dropColumn('vehiculo_id');
         });
     }

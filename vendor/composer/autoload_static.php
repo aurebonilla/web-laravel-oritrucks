@@ -86,6 +86,7 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
             'Spatie\\LaravelIgnition\\' => 23,
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
+            'Spatie\\Enum\\' => 12,
             'Spatie\\Backtrace\\' => 17,
         ),
         'R' => 
@@ -325,6 +326,10 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         array (
             0 => __DIR__ . '/..' . '/spatie/flare-client-php/src',
         ),
+        'Spatie\\Enum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/enum/src',
+        ),
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
@@ -540,7 +545,6 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Conductor' => __DIR__ . '/../..' . '/app/Models/Conductor.php',
-        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Vehiculo' => __DIR__ . '/../..' . '/app/Models/Vehiculo.php',
         'App\\Models\\Viaje' => __DIR__ . '/../..' . '/app/Models/Viaje.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -4695,6 +4699,14 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Spatie\\Backtrace\\CodeSnippet' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippet.php',
         'Spatie\\Backtrace\\File' => __DIR__ . '/..' . '/spatie/backtrace/src/File.php',
         'Spatie\\Backtrace\\Frame' => __DIR__ . '/..' . '/spatie/backtrace/src/Frame.php',
+        'Spatie\\Enum\\Enum' => __DIR__ . '/..' . '/spatie/enum/src/Enum.php',
+        'Spatie\\Enum\\EnumDefinition' => __DIR__ . '/..' . '/spatie/enum/src/EnumDefinition.php',
+        'Spatie\\Enum\\Exceptions\\DuplicateLabelsException' => __DIR__ . '/..' . '/spatie/enum/src/Exceptions/DuplicateLabelsException.php',
+        'Spatie\\Enum\\Exceptions\\DuplicateValuesException' => __DIR__ . '/..' . '/spatie/enum/src/Exceptions/DuplicateValuesException.php',
+        'Spatie\\Enum\\Exceptions\\UnknownEnumMethod' => __DIR__ . '/..' . '/spatie/enum/src/Exceptions/UnknownEnumMethod.php',
+        'Spatie\\Enum\\Exceptions\\UnknownEnumProperty' => __DIR__ . '/..' . '/spatie/enum/src/Exceptions/UnknownEnumProperty.php',
+        'Spatie\\Enum\\Faker\\FakerEnumProvider' => __DIR__ . '/..' . '/spatie/enum/src/Faker/FakerEnumProvider.php',
+        'Spatie\\Enum\\Phpunit\\EnumAssertions' => __DIR__ . '/..' . '/spatie/enum/src/Phpunit/EnumAssertions.php',
         'Spatie\\FlareClient\\Api' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Api.php',
         'Spatie\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Concerns/HasContext.php',
         'Spatie\\FlareClient\\Concerns\\UsesTime' => __DIR__ . '/..' . '/spatie/flare-client-php/src/Concerns/UsesTime.php',

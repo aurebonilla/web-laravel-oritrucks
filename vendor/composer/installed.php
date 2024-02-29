@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v9.5.2',
-        'version' => '9.5.2.0',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'cbdf91ff95603873677a0f81f485255bc62cdaa7',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -383,12 +383,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v9.5.2',
-            'version' => '9.5.2.0',
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'cbdf91ff95603873677a0f81f485255bc62cdaa7',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -751,8 +751,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -964,6 +964,15 @@
             'aliases' => array(),
             'reference' => '483f76a82964a0431aa836b6ed0edde0c248e3ab',
             'dev_requirement' => true,
+        ),
+        'spatie/enum' => array(
+            'pretty_version' => '3.13.0',
+            'version' => '3.13.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/enum',
+            'aliases' => array(),
+            'reference' => 'f1a0f464ba909491a53e60a955ce84ad7cd93a2c',
+            'dev_requirement' => false,
         ),
         'spatie/flare-client-php' => array(
             'pretty_version' => '1.4.4',
