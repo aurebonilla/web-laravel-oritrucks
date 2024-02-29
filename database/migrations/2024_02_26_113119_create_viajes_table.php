@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('origen');
             $table->string('destino');
             $table->int('km');
-            $table->string('tarifa'); // No sé como poner aún tipo de tarifa
+            $table->enum('tarifa', TarifaType::cases())->default(TarifaType::Estandar); // No sé como poner aún tipo de tarifa
         });
     }
 

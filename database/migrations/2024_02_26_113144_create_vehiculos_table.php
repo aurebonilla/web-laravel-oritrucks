@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->string('matricula')->primary();
-            $table->string('tipo'); // No sé como poner aún tipo de vehículo
+            $table->enum('tipo', VehiculoType::cases())->default(VehiculoType::Camion);; // No sé como poner aún tipo de vehículo
         });
     }
 
