@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('email');
             $table->string('carnet');
-            $table->int('telefono');
+            $table->integer('telefono');
             $table->string('foto_perfil');
         });
     }
