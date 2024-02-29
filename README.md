@@ -7,60 +7,34 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Objetivo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+El objetivo de este proyecto es desarrollar una aplicación de gestión de servicios de transporte para la empresa OriTrucks Company.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+La empresa Oritrucks Company tiene un sistema de gestión obsoleto, cuya última actualización fue realizada hace 8 años, su sistema está diseñado para su instalación en un único puesto, con una base de datos almacenada en archivos locales. La empresa quiere desarrollar un actualización de sus sistemas de gestión y quiere darle un enfoque más actual a la empresa digitalizando su imagen, para ello necesita desarrollar una página web y una aplicación de gestión interna (intranet) que permita  interconectar las diferentes oficinas de la empresa, para la gestión correcta de la empresa sus oficinas trabajan con una base de datos centralizada.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+También se pretende añadir nuevas funcionalidades que permitan al administrador llevar un control de la empresa a través de una panel de administrador que le de opción a gestionar el personal , la logística de la empresa, la actividad empresarial, la gestión de la clientela entre otras funcionalidades.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Aplicación de Gestión (INTRANET)
+La aplicación de gestión interna permite a los empleados acceder mediante unas credenciales válidas al sistema y realizar las siguientes operaciones:
+• Gestión de personal: consultas, administración y conductores.
+• Control de camiones, información de los mismos (fechas de revisión, próxima ITV, etc.)
+• Administración de la actividad empresarial, trayectos programados (vehículo y conductor) y solicitudes pendientes, pagos realizados y pendientes, etc..
+• Gestión de la clientela, almacenamiento de usuarios, servicio consumido, precio, fecha, etc..
+Dichas operaciones se realizarán mediante el panel de Administración Web pudiendo realizar altas, bajas, modificaciones y consultas. 
+Los empleados, conductores, conocerán sus horarios de forma semanal, acorde con los encargos de transporte que haya recibiendo la empresa, realizando una división equitativa entre todos. Se podrán realizar modificaciones en los horarios siempre que lo soliciten y que haya disponibilidad.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Reserva y gestión de servicio de transporte (web pública)
+En este proyecto desarrollaremos una web que permita a los clientes realizar las siguientes acciones:
+• Creación y gestión de una cuenta
+• Consultar los servicios de transporte 
+• Reserva y compra de un trayecto y horario en unos horarios concretos, con necesidad de registro previo. 
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Público objetivo
 
-### Premium Partners
+El público objetivo de nuestra aplicación de gestión será el administrador, que podrá conocer la gestión interna de la misma de una manera más sencilla a través del panel de gestiones del administrador.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Por otro lado, la página web está destinada al cliente, la página web será diseñada con el objetivo principal de ofrecer una experiencia fácil y agradable para el cliente, asegurando que puedan utilizarla de manera efectiva y encontrar la información que necesitan de manera rápida y sin complicaciones.
