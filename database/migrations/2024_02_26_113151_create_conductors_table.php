@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('carnet');
             $table->integer('telefono');
-            $table->string('foto_perfil');
+            // $table->string('foto_perfil'); En siguientes entregas trataremos de añadir la foto de perfil
         });
     }
 

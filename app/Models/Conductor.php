@@ -23,7 +23,7 @@ class Conductor extends Model
         'email',
         'carnet',
         'telefono',
-        'foto_perfil',
+        //'foto_perfil',
     ];
     
     public function viajes()

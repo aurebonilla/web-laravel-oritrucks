@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
         // Llamamos a otro fichero de semillas
         $this->call( ConductorSeeder ::class );
         // Mostramos información por consola
-        $this->command->info('Conductor seeded!' );
+        $this->command->info('Conductor seeded! ;)' );
 
         $this->call(VehiculoSeeder ::class);
-        $this->command->info('Vehiculo seeded!');
+        $this->command->info('Vehiculo seeded! ;)');
     }
 }

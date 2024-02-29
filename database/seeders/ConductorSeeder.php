@@ -12,9 +12,9 @@ class ConductorSeeder extends Seeder
 {
     public function run() {
         // Borramos los datos de la tabla
-        DB::table('Conductor')->delete();
+        DB::table('conductors')->delete();
         // Añadimos una entrada a esta tabla
-        DB::table('Conductor')->insert([
+        DB::table('conductors')->insert([
             'nombre' => 'Javier',
             'apellidos' => 'Garcia Gonzalez',
             'dni' => '87223361P',
@@ -28,7 +28,7 @@ class ConductorSeeder extends Seeder
         $nombreArchivo1 = 'conductor1.png';
         Storage::put('public/fotos/'.$nombreArchivo1,file_get_contents($imagen1));
 
-        DB::table('Conductor')->insert([
+        DB::table('conductors')->insert([
             'nombre' => 'Oscar',
             'apellidos' => 'Fernandez Sempere',
             'dni' => '62532819U',
@@ -42,7 +42,7 @@ class ConductorSeeder extends Seeder
         $nombreArchivo2 = 'conductor2.png';
         Storage::put('public/fotos/'.$nombreArchivo2,file_get_contents($imagen2));
 
-        DB::table('Conductor')->insert([
+        DB::table('conductors')->insert([
             'nombre' => 'Mario',
             'apellidos' => 'Pastor Sancho',
             'dni' => '06332250T',
