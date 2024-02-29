@@ -29,14 +29,9 @@ return new class extends Migration
      */
     public function down()
     {
-        // drop the keys
         Schema::table('viajes', function (Blueprint $table) {
-            $table->dropForeign('viaje_vehiculo_id_foreign');
-        });
-
-        // drop the actual columns
-        Schema::table('viajes', function (Blueprint $table) {
-            $table->dropColumn('vehiculo_id');
+            $table->dropForeign(['conductor_id']);
+            $table->dropColumn('conductor_id');
         });
     }
 };

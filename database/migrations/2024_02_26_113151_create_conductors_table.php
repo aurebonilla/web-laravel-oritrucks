@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidos');
             $table->date('fecha_nacimiento');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('carnet');
             $table->integer('telefono');
             // $table->string('foto_perfil'); En siguientes entregas trataremos de añadir la foto de perfil
