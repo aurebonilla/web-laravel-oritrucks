@@ -532,6 +532,8 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Enums\\TarifaType' => __DIR__ . '/../..' . '/app/Enums/TarifaType.php',
+        'App\\Enums\\VehiculoType' => __DIR__ . '/../..' . '/app/Enums/VehiculoType.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -5844,6 +5846,8 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
         'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
+        'Tests\\Feature\\AssociationConductorViajeTest' => __DIR__ . '/../..' . '/tests/Feature/AssociationConductorViajeTest.php',
+        'Tests\\Feature\\AssociationViajeVehiculoTest' => __DIR__ . '/../..' . '/tests/Feature/AssociationViajeVehiculoTest.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',

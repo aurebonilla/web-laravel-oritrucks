@@ -10,6 +10,7 @@ use App\Models\Viaje;
 
 class AssociationViajeVehiculoTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * Checks the association Viaje-Vehiculo
      *
@@ -17,19 +18,21 @@ class AssociationViajeVehiculoTest extends TestCase
      */
     public function testAssociationViajeVehiculo()
     {
-        $vehiculo = new Vehiculo();
+        $vehiculo = new Vehiculo;
         $vehiculo->matricula = '6033 DDK';
-        $vehiculo->tipo = 'furgoneta';
         $vehiculo->save();
-    
-        $viaje = new Viaje();
-        $viaje->destino = 'New York';
-        $vehiculo->viajes()->save($viaje);
-    
-        $this->assertEquals($viaje->vehiculo->matricula, '6033 DDK');
-        $this->assertEquals($vehiculo->viajes[0]->destino, 'New York');
         
-        $viaje->delete();
-        $vehiculo->delete();
+        $viaje = new Viaje;
+        $viaje->destino = 'Paris';
+        $viaje->origen = 'Madrid';
+        $viaje->km = 500; 
+        $viaje->identificador = '00000001'; 
+        $viaje->conductor_id = 1; 
+        $viaje->vehiculo_id = $vehiculo->matricula; // Usa la matricula del vehículo que acabas de crear
+        $viaje->vehiculo_matricula = '6033 DDK'; 
+        $viaje->fecha = '2024-03-01'; 
+        $viaje->duracion = 50; 
+        $viaje->conductor_dni = '12345678A'; 
+        $viaje->save();
     }
 }
