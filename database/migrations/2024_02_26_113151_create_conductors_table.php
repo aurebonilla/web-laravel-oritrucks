@@ -14,6 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('conductors', function (Blueprint $table) {
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->string('dni')->primary();
             $table->string('nombre');
             $table->string('apellidos');

@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('origen');
             $table->string('destino');
             $table->integer('km');
-            $table->string('vehiculo_id');
-            $table->string('conductor_id');
            $table->enum('tarifa', TarifaType::toArray())->default(TarifaType::estandar()); // No sé como poner aún tipo de tarifa
         });
     }

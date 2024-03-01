@@ -16,6 +16,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('vehiculos', function (Blueprint $table) {
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->string('matricula')->primary();
             $table->enum('tipo', VehiculoType::toArray())->default(VehiculoType::camion());; // No sé como poner aún tipo de vehículo
         });
