@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SignUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return file_get_contents(public_path('index.html'));
+    return view('index');
 });
 
-Route::get('/sign-in', function () {
-    return view('static-sign-in');
-});
+Route::get('/signup', [SignUpController::class, 'create'])->name('cliente.create');
+
+Route::post('/signup', [SignUpController::class, 'store'])->name('cliente.store');
