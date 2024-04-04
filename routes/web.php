@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConductorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignUpController;
 
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::get('/signup', [SignUpController::class, 'create'])->name('cliente.create');
 
 Route::post('/signup', [SignUpController::class, 'store'])->name('cliente.store');
+
+Route::resource('conductor', ConductorController::class);
