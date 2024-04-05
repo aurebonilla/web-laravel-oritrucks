@@ -38,11 +38,16 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Borrar</button>
             </form>
+            <form action="/conductor/edit/{{ $conductor->dni }}" method="GET" style="display: inline-block;">
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </form>
         </td>
     </tr>
     @endforeach
 
     <div style="text-align: center; margin-top: 20px;">
-        <a href="/conductor/create" class="btn btn-primary">Crear Conductor</a>
+        <form action="/conductor/create" style="display: inline-block;">
+            <button type="submit" class="btn btn-primary">Crear Conductor</button>
+        </form>
     </div>
 </table>
