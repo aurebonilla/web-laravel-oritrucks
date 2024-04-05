@@ -37,23 +37,46 @@ class ConductorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'dni' => 'required|size:9',
-            'telefono' => 'required|digits:9',
-            'carnet' => 'required|in:B,C1',
-            // Añade aquí más reglas de validación según sea necesario
-        ]);
-        $conductor = new Conductor();
-        $conductor->nombre = $request->nombre;
-        $conductor->apellidos = $request->apellidos;
-        $conductor->dni = $request->dni;
-        $conductor->email = $request->email;
-        $conductor->carnet = $request->carnet;
-        $conductor->fecha_nacimiento = $request->fecha_nacimiento;
-        $conductor->telefono = $request->telefono;
-        $conductor->save();
-
-        return redirect()->route('conductor.index');
+        try{
+            $request->validate([
+                'nombre' => 'required',
+                'apellidos' => 'required',
+                'email' => 'required|email',
+                'dni' => 'required|size:9',
+                'telefono' => 'required|digits:9',
+                'carnet' => 'required|in:B,C1',
+                'fecha_nacimiento' => 'required|date|before:-18 years',
+            ],
+            [
+                'nombre.required' => 'El nombre es obligatorio',
+                'apellidos.required' => 'Los apellidos son obligatorios',
+                'email.required' => 'El email es obligatorio',
+                'email.email' => 'El email debe ser válido',
+                'fecha_nacimiento.required' => 'La fecha de nacimiento es obligatoria',
+                'fecha_nacimiento.before' => 'Debes ser mayor de edad para registrarte',
+                'dni.required' => 'El DNI es obligatorio',
+                'dni.size' => 'El DNI debe tener 9 caracteres',
+                'telefono.required' => 'El teléfono es obligatorio',
+                'telefono.digits' => 'El teléfono debe tener 9 dígitos',
+                'carnet.required' => 'El carnet es obligatorio',
+                'carnet.in' => 'El carnet debe ser B o C1',
+            ]);
+            $conductor = new Conductor();
+            $conductor->nombre = $request->nombre;
+            $conductor->apellidos = $request->apellidos;
+            $conductor->dni = $request->dni;
+            $conductor->email = $request->email;
+            $conductor->carnet = $request->carnet;
+            $conductor->fecha_nacimiento = $request->fecha_nacimiento;
+            $conductor->telefono = $request->telefono;
+            $conductor->save();
+    
+            return redirect()->route('conductor.index');
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->back()->withErrors(['error' => 'Error al crear el conductor. Quizás ya existe un conductor con ese DNI o email.']);
+        }
+        
     }
 
     /**
@@ -99,5 +122,11 @@ class ConductorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function destroyByEmail($email){
+        $conductor = Conductor::where('email', $email)->first();
+        $conductor->delete();
+        return redirect()->route('conductor.index');
     }
 }

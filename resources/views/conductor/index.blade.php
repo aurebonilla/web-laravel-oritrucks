@@ -21,6 +21,7 @@
         <th>Carnet</th>
         <th>Fecha de Nacimiento</th>
         <th>Teléfono</th>
+        <th>Acciones</th>
     </tr>
     @foreach ($conductores as $conductor)
     <tr>
@@ -31,6 +32,17 @@
         <td>{{ $conductor->carnet }}</td>
         <td>{{ $conductor->fecha_nacimiento }}</td>
         <td>{{ $conductor->telefono }}</td>
+        <td>
+            <form action="/conductor/email/{{ $conductor->email }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Borrar</button>
+            </form>
+        </td>
     </tr>
     @endforeach
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/conductor/create" class="btn btn-primary">Crear Conductor</a>
+    </div>
 </table>

@@ -23,4 +23,6 @@ Route::get('/signup', [SignUpController::class, 'create'])->name('cliente.create
 
 Route::post('/signup', [SignUpController::class, 'store'])->name('cliente.store');
 
+// Rutas de Conductor
 Route::resource('conductor', ConductorController::class);
+Route::delete('/conductor/email/{email}', [ConductorController::class, 'destroyByEmail']);
