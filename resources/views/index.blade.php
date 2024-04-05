@@ -48,7 +48,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                   <a class="nav-link tm-nav-link" href="#contact">Contacto</a>
               </li>      
               <li class="nav-item">
-              <a class="nav-link tm-nav-link" href="#" onclick="window.location.href='{{ route('cliente.create') }}'">Usuarios</a>
+              <a class="nav-link tm-nav-link" href="#" onclick="window.location.href='{{ route('usuario.login') }}'">Usuarios</a>
             </li>                 
             </ul>
           </div>        
