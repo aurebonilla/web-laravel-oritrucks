@@ -65,3 +65,56 @@ body {
     width: 100%;
     margin-top: 10px;
   }
+
+  .error-box {
+    max-height: 70px; /* Ajusta este valor a la altura que desees */
+    overflow-y: auto;
+    border: 1px solid red;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  
+  .form-content {
+    flex: 1;
+  }
+  
+  .error-box {
+    flex: 1;
+    margin-left: 20px;
+  }
+
+  .signup-box {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px; /* Reducimos el padding */
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.1);
+    border-radius: 10px;
+  }
+  
+  .signup-box h2 {
+    margin: 0;
+    color: #333333;
+    font-size: 20px; /* Reducimos el tamaño de la fuente */
+    font-weight: 700;
+    padding-bottom: 5px; /* Reducimos el padding */
+    border-bottom: 2px solid #333333;
+    margin-bottom: 10px; /* Reducimos el margen */
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }

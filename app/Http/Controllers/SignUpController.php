@@ -23,10 +23,10 @@ class SignUpController extends Controller
             'password' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
-            'dni' => 'required',
+            'dni' => 'required|regex:/^[0-9]{8}[A-Za-z]$/',
             'email' => 'required|email',
             'telefono' => 'required',
-            'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'required|date|before:today',
             'direccion' => 'required',
         ]);
     
@@ -40,9 +40,10 @@ class SignUpController extends Controller
         $usuario->telefono = $validated['telefono'];
         $usuario->fecha_nacimiento = $validated['fecha_nacimiento'];
         $usuario->direccion = $validated['direccion'];
+
         $usuario->save();
     
-        return view('usuario.profile', ['usuario' => $usuario]);
+        return redirect()->route('usuario.login');
     }
 
 }

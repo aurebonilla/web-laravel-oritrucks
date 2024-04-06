@@ -8,7 +8,12 @@
     <div class="imagen">
     <img src="{{ asset('img/furgoneta1.jpeg') }}" alt="Descripción de la imagen" class="form-image">
     </div>
-    <div class="content">
+    <div class="form-container">
+      <div class="signup-box">
+        <h2>Sign Up</h2>
+        <p>Por favor, rellene este formulario para crear una cuenta.</p>
+      </div>
+      <div class="content">
       <form method="POST" action="{{ route('usuario.store') }}">
         @csrf
         <label for="usuario">Usuario:</label>
@@ -37,11 +42,20 @@
 
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion">
-    </form>
-    
-    <button class="register-button" type="submit">
+        <button class="register-button" type="submit">
          Registrarse
         </button>
+    </form>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger error-box">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+      </ul>
+    </div>
+  @endif
+</div>
   </body>
 </html>
