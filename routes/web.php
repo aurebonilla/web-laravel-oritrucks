@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ViajeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SignUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return file_get_contents(public_path('index.html'));
+    return view('index');
 });
 
 Route::get('/sign-in', function () {
@@ -26,3 +27,6 @@ Route::get('/sign-in', function () {
 Route::resource('viaje', ViajeController::class);
 Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, 'destroyByIdentificador']);
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
+Route::get('/signup', [SignUpController::class, 'create'])->name('cliente.create');
+
+Route::post('/signup', [SignUpController::class, 'store'])->name('cliente.store');

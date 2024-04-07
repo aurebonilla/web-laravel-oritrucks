@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-develop',
-        'version' => 'dev-develop',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'cbdf91ff95603873677a0f81f485255bc62cdaa7',
+        'reference' => 'f888d3d00a974196d6abd758a1ba5e3231efb859',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -383,12 +383,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-develop',
-            'version' => 'dev-develop',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'cbdf91ff95603873677a0f81f485255bc62cdaa7',
+            'reference' => 'f888d3d00a974196d6abd758a1ba5e3231efb859',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(

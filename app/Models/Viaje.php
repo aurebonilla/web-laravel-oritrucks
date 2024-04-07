@@ -37,5 +37,10 @@ class Viaje extends Model
         // Viaje tiene la clave ajena 'conductor_id'
         return $this->belongsTo(Conductor::class);
     }
-       
+    
+    public function cliente()
+    {
+        // Viaje tiene la clave ajena 'cliente_id'
+        return $this->belongsTo(Cliente::class);
+    }
 }
