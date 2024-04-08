@@ -51,10 +51,10 @@ class ConductorController extends Controller
                 'nombre' => 'required',
                 'apellidos' => 'required',
                 'email' => 'required|email',
-                'dni' => 'required|size:9',
-                'telefono' => 'required|digits:9',
+                'dni' => 'required|size:9|regex:/^[0-9]{8}[A-Z]$/',
                 'carnet' => 'required|in:B,C1',
                 'fecha_nacimiento' => 'required|date|before:-18 years',
+                'telefono' => 'required|digits:9|regex:/^[6-7][0-9]{8}$/',
             ],
             [
                 'nombre.required' => 'El nombre es obligatorio',
@@ -65,8 +65,10 @@ class ConductorController extends Controller
                 'fecha_nacimiento.before' => 'Debes ser mayor de edad para registrarte',
                 'dni.required' => 'El DNI es obligatorio',
                 'dni.size' => 'El DNI debe tener 9 caracteres',
+                'dni.regex' => 'Formato de DNI incorrecto, Ej: 12345678A',
                 'telefono.required' => 'El teléfono es obligatorio',
                 'telefono.digits' => 'El teléfono debe tener 9 dígitos',
+                'telefono.regex' => 'El teléfono debe empezar con 6 o 7',
                 'carnet.required' => 'El carnet es obligatorio',
                 'carnet.in' => 'El carnet debe ser B o C1',
             ]);
@@ -136,10 +138,10 @@ class ConductorController extends Controller
                 'nombre' => 'required',
                 'apellidos' => 'required',
                 'email' => 'required|email',
-                'dni' => 'required|size:9',
-                'telefono' => 'required|digits:9',
+                'dni' => 'required|size:9|regex:/^[0-9]{8}[A-Z]$/',
                 'carnet' => 'required|in:B,C1',
                 'fecha_nacimiento' => 'required|date|before:-18 years',
+                'telefono' => 'required|digits:9|regex:/^[6-7][0-9]{8}$/',
             ],
             [
                 'nombre.required' => 'El nombre es obligatorio',
@@ -150,8 +152,10 @@ class ConductorController extends Controller
                 'fecha_nacimiento.before' => 'Debes ser mayor de edad para registrarte',
                 'dni.required' => 'El DNI es obligatorio',
                 'dni.size' => 'El DNI debe tener 9 caracteres',
+                'dni.regex' => 'Formato de DNI incorrecto, Ej: 12345678A',
                 'telefono.required' => 'El teléfono es obligatorio',
                 'telefono.digits' => 'El teléfono debe tener 9 dígitos',
+                'telefono.regex' => 'El teléfono debe empezar con 6 o 7',
                 'carnet.required' => 'El carnet es obligatorio',
                 'carnet.in' => 'El carnet debe ser B o C1',
             ]);
@@ -182,7 +186,6 @@ class ConductorController extends Controller
         return redirect()->route('conductor.index');
     }
 
-
     public function filtrar(Request $request)
     {
         $tipo_filtro = $request->get('tipo_filtro');
@@ -191,13 +194,20 @@ class ConductorController extends Controller
         $query = Conductor::query();
 
         if ($tipo_filtro) {
-            $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+            if ($tipo_filtro == 'mayor') {
+                $query->whereDate('fecha_nacimiento', '<=', now()->subYears($valor_filtro));
+            } elseif ($tipo_filtro == 'menor') {
+                $query->whereDate('fecha_nacimiento', '>=', now()->subYears($valor_filtro));
+            } else {
+                $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+            }
         }
 
         $conductores = $query->get();
 
         return view('conductor.index', compact('conductores'));
     }
+
 
     public function ordenar(Request $request)
     {
