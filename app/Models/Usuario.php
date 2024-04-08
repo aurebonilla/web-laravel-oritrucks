@@ -20,8 +20,10 @@ class Usuario extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'dni';
+
     protected $fillable = [
-        'usuario',
+        'nombre_usuario',
         'password',
         'nombre',
         'apellidos',

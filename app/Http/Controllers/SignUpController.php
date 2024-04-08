@@ -29,6 +29,7 @@ class SignUpController extends Controller
             'fecha_nacimiento' => 'required|date|before:today',
             'direccion' => 'required',
         ]);
+
     
         $usuario = new Usuario();
         $usuario->usuario = $validated['usuario'];
