@@ -14,6 +14,7 @@ class Vehiculo extends Model
      * @var array<int, string>
      */
     protected $primaryKey = 'matricula';
+    protected $keyType = 'string';
 
     protected $fillable = [
         'matricula',

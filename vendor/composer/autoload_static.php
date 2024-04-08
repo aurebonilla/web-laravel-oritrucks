@@ -536,6 +536,8 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'App\\Enums\\VehiculoType' => __DIR__ . '/../..' . '/app/Enums/VehiculoType.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\SignUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/SignUpController.php',
+        'App\\Http\\Controllers\\ViajeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ViajeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

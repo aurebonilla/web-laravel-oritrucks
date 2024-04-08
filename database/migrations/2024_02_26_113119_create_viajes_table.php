@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('viajes', function (Blueprint $table) {
-            $table->integer('identificador')->primary();
+            $table->string('identificador')->primary();
             $table->date('fecha');
             $table->integer('duracion');
             $table->string('origen');

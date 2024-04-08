@@ -10,4 +10,11 @@ use Spatie\Enum\Enum;
  */
 final class TarifaType extends Enum
 {
+    const Estandar = 'ESTANDAR';
+    const Premium = 'PREMIUM';
+
+    /**
+     * @method static self estandar()
+     * @method static self premium()
+     */
 }

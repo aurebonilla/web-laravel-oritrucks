@@ -14,6 +14,7 @@ class Conductor extends Model
      * @var array<int, string>
      */
     protected $primaryKey = 'dni';
+    protected $keyType = 'string';
 
     protected $fillable = [
         'nombre',
