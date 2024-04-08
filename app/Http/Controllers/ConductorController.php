@@ -13,9 +13,18 @@ class ConductorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('tipo_filtro') && $request->has('valor_filtro')) {
+            return $this->filtrar($request);
+        }
+
+        if ($request->has('orden')) {
+            return $this->ordenar($request);
+        }
+
         $conductores = Conductor::all();
+
         return view('conductor.index', compact('conductores'));
     }
 
@@ -171,5 +180,54 @@ class ConductorController extends Controller
         $conductor = Conductor::where('email', $email)->first();
         $conductor->delete();
         return redirect()->route('conductor.index');
+    }
+
+
+    public function filtrar(Request $request)
+    {
+        $tipo_filtro = $request->get('tipo_filtro');
+        $valor_filtro = $request->get('valor_filtro');
+
+        $query = Conductor::query();
+
+        if ($tipo_filtro) {
+            $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+        }
+
+        $conductores = $query->get();
+
+        return view('conductor.index', compact('conductores'));
+    }
+
+    public function ordenar(Request $request)
+    {
+        $orden = $request->get('orden');
+
+        $query = Conductor::query();
+
+        switch ($orden) {
+            case 'edad_asc':
+                $query->orderBy('fecha_nacimiento', 'desc');
+                break;
+            case 'edad_desc':
+                $query->orderBy('fecha_nacimiento', 'asc');
+                break;
+            case 'modificacion_asc':
+                $query->orderBy('updated_at', 'asc');
+                break;
+            case 'modificacion_desc':
+                $query->orderBy('updated_at', 'desc');
+                break;
+            case 'creacion_asc':
+                $query->orderBy('created_at', 'asc');
+                break;
+            case 'creacion_desc':
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $conductores = $query->get();
+
+        return view('conductor.index', compact('conductores'));
     }
 }
