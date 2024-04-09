@@ -15,6 +15,21 @@
 
 <a href="{{ route('vehiculo.create') }}"><button>Crear Vehículo</button></a>
 
+<!-- Filtros para mostrar los vehiculos -->
+<form method="GET" action="{{ route('vehiculos.index') }}">
+    <input type="text" name="matricula" placeholder="Buscar por matrícula" value="{{ request('matricula') }}">
+    <select name="tipo">
+        <option value="">Todos los tipos</option>
+        <option value="furgoneta" {{ request('tipo') == 'furgoneta' ? 'selected' : '' }}>Furgoneta</option>
+        <option value="camion" {{ request('tipo') == 'camion' ? 'selected' : '' }}>Camión</option>
+    </select>
+    <select name="orden">
+        <option value="asc" {{ request('orden') == 'asc' ? 'selected' : '' }}>Ascendente</option>
+        <option value="desc" {{ request('orden') == 'desc' ? 'selected' : '' }}>Descendente</option>
+    </select>
+    <button type="submit">Filtrar</button>
+</form>
+
 <table>
     <thead>
         <tr>

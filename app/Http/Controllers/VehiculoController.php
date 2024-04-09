@@ -33,9 +33,23 @@ class VehiculoController extends Controller
     }
 
     //Listamos los vehiculos
-    public function index()
+    public function index(Request $request)
     {
-        $vehiculos = Vehiculo::all();
+        $query = Vehiculo::query();
+
+        if ($request->filled('matricula')) {
+            $query->where('matricula', 'like', '%' . $request->matricula . '%');
+        }
+        if ($request->filled('tipo')) {
+            $query->where('tipo', $request->tipo);
+        }
+        if ($request->filled('orden') && in_array($request->orden, ['asc', 'desc'])) {
+            $query->orderBy('matricula', $request->orden);
+        } else {
+            $query->orderBy('matricula', 'asc');  // Default order
+        }
+
+        $vehiculos = $query->get();
         return view('vehiculo.index', compact('vehiculos'));
     }
 

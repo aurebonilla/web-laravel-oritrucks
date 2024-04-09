@@ -52,6 +52,7 @@
 
         <input type="submit" value="Crear Vehículo">
     </form>
+    <a href="{{ route('vehiculos.index') }}"><button type="button">Volver al Listado de Vehículos</button></a>
 </div>
 </body>
 </html>
