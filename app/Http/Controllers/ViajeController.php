@@ -16,8 +16,18 @@ class ViajeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->has('tipo_filtro') && $request->has('valor_filtro')) {
+            return $this->filtrar($request);
+        }
+
+        if ($request->has('orden')) {
+            return $this->ordenar($request);
+        }
+
+
         $viajes = Viaje::all();
         return view('viaje.index', compact('viajes'));
     }
@@ -203,4 +213,59 @@ class ViajeController extends Controller
             return redirect()->route('viaje.index')->withErrors(['error' => 'No se encontró el viaje con el identificador proporcionado.']);
         }
     }
+
+    public function filtrar(Request $request)
+    {
+        $tipo_filtro = $request->get('tipo_filtro');
+        $valor_filtro = $request->get('valor_filtro');
+
+        $query = Viaje::query();
+
+        if ($tipo_filtro) {
+            if ($tipo_filtro == 'mayor') {
+                $query->whereDate('fecha', '<=', now()->subYears($valor_filtro));
+            } elseif ($tipo_filtro == 'menor') {
+                $query->whereDate('fecha', '>=', now()->subYears($valor_filtro));
+            } else {
+                $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+            }
+        }
+
+        $viajes = $query->get();
+
+        return view('viaje.index', compact('viajes'));
+    }
+
+    public function ordenar(Request $request)
+    {
+        $orden = $request->get('orden');
+
+        $query = Viaje::query();
+
+        switch ($orden) {
+            case 'fecha_asc':
+                $query->orderBy('fecha', 'desc');
+                break;
+            case 'fecha_desc':
+                $query->orderBy('fecha', 'asc');
+                break;
+            case 'modificacion_asc':
+                $query->orderBy('updated_at', 'asc');
+                break;
+            case 'modificacion_desc':
+                $query->orderBy('updated_at', 'desc');
+                break;
+            case 'creacion_asc':
+                $query->orderBy('created_at', 'asc');
+                break;
+            case 'creacion_desc':
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        $viajes = $query->get();
+
+        return view('viaje.index', compact('viajes'));
+    }
+
 }
