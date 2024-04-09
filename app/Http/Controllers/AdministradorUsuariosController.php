@@ -195,7 +195,13 @@ class AdministradorUsuariosController extends Controller
         $query = Usuario::query();
 
         if ($tipo_filtro) {
-            $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+            if ($tipo_filtro == 'mayor') {
+                $query->whereDate('fecha_nacimiento', '<=', now()->subYears($valor_filtro));
+            } elseif ($tipo_filtro == 'menor') {
+                $query->whereDate('fecha_nacimiento', '>=', now()->subYears($valor_filtro));
+            } else {
+                $query->where($tipo_filtro, 'like', "%{$valor_filtro}%");
+            }
         }
 
         $usuarios = $query->get();

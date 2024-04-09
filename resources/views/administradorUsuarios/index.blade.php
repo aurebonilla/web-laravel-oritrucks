@@ -69,7 +69,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Borrar</button>
             </form>
-            <form action="{{ route('administradorUsuarios.edit', $usuario->dni) }}" method="GET" style="display: inline-block;">
+            <form action="{{ route('administradorUsuarios.edit', ['dni' => $usuario->dni]) }}" method="GET" style="display: inline-block;">
                 <button type="submit" class="btn btn-primary">Modificar</button>
             </form>
         </td>
@@ -92,11 +92,13 @@
             <form action="{{ route('administradorUsuarios.index') }}" method="GET">
                 <select name="tipo_filtro">
                     <option value="">Seleccionar filtro</option>
-                    <option value="dni">DNI</option>
+                    <option value="nombre_usuario">Nombre_Usuario</option>
                     <option value="nombre">Nombre</option>
                     <option value="apellidos">Apellido</option>
+                    <option value="dni">DNI</option>  
                     <option value="email">Email</option>
                     <option value="telefono">Teléfono</option>
+                    <option value="direccion">Direccion</option>
                     <option value="mayor">Mayor de ...</option>
                     <option value="menor">Menor de ...</option>
                 </select>

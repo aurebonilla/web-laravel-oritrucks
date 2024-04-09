@@ -32,6 +32,5 @@ Route::delete('/usuarios/email/{email}', [AdministradorUsuariosController::class
 Route::get('/administradorUsuarios', [AdministradorUsuariosController::class, 'index'])->name('administradorUsuarios.index');
 Route::get('/administradorUsuarios/create', [AdministradorUsuariosController::class, 'create'])->name('administradorUsuarios.create');
 Route::post('/administradorUsuarios', [AdministradorUsuariosController::class, 'store'])->name('administradorUsuarios.store');
-
-Route::get('/administradorUsuarios/{dni}/edit', [AdministradorUsuariosController::class, 'edit'])->name('administradorUsuarios.edit');
+Route::get('/administradorUsuarios/edit/{dni}', [AdministradorUsuariosController::class, 'edit'])->name('administradorUsuarios.edit');
 Route::put('/administradorUsuarios/{dni}', [AdministradorUsuariosController::class, 'update'])->name('administradorUsuarios.update');
