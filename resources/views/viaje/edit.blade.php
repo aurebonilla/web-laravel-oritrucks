@@ -34,8 +34,8 @@
     <form action="{{ route('viaje.update', $viaje->identificador) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="identificador">Identificador:</label>
-        <input type="number" id="identificador" name="identificador" value="{{ $viaje->identificador }}">
+        <!--<label for="identificador">Identificador:</label>
+        <input type="number" id="identificador" name="identificador" value="{{ $viaje->identificador }}">-->
 
         <label for="fecha">Fecha de Viaje:</label>
         <input type="date" id="fecha" name="fecha" value="{{ $viaje->fecha}}">
@@ -53,7 +53,24 @@
         <input type="number" id="km" name="km" value="{{ $viaje->km }}">
 
         <label for="tarifa">Tarifa:</label>
-        <input type="number" id="tarifa" name="tarifa" value="{{ $viaje->tarifa }}">
+        <select id="tarifa" name="tarifa">
+            <option value="ESTANDAR" {{ $viaje->tarifa == 'ESTANDAR' ? 'selected' : '' }}>Estandar</option>
+            <option value="PREMIUM" {{ $viaje->tarifa == 'PREMIUM' ? 'selected' : '' }}>Premium</option>
+        </select>
+
+        <label for="vehiculo_id">Vehículo:</label>
+        <select id="vehiculo_id" name="vehiculo_id">
+            @foreach ($vehiculos as $vehiculo)
+                <option value="{{ $vehiculo->matricula }}" {{ $viaje->vehiculo_id == $vehiculo->matricula ? 'selected' : '' }}>{{ $vehiculo->matricula }}</option>
+            @endforeach
+        </select>
+
+        <label for="conductor_id">Conductor:</label>
+        <select id="conductor_id" name="conductor_id">
+            @foreach ($conductors as $conductor)
+                <option value="{{ $conductor->dni }}" {{ $viaje->conductor_id == $conductor->dni ? 'selected' : '' }}>{{ $conductor->dni }}</option>
+            @endforeach
+        </select>
 
         <input type="submit" value="Modificar Viaje">
     </form>

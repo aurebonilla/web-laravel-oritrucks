@@ -118,8 +118,11 @@ class ViajeController extends Controller
         if (!$viaje) {
             return redirect()->back()->with('error', 'Viaje no encontrado');
         }
+        $vehiculos = Vehiculo::all(); // Busca todos los vehículos
+        $conductors = Conductor::all(); // Busca todos los conductores
 
-        return view('viaje.edit', ['viaje' => $viaje]);
+        return view('viaje.edit', compact('viaje', 'vehiculos', 'conductors')); // Pasa los vehículos y los conductores a la vista
+        //return view('viaje.edit', ['viaje' => $viaje]);
     }
 
     /**
@@ -139,7 +142,7 @@ class ViajeController extends Controller
 
         try{
             $request->validate([
-                'identificador' => 'required',
+                //'identificador' => 'required',
                 'fecha' => 'required|date',
                 'duracion' => 'required',
                 'origen' => 'required',
@@ -147,9 +150,11 @@ class ViajeController extends Controller
                 'km' => 'required',
                 'tarifa' => 'required|in:ESTANDAR,PREMIUM',
                 //tengo q poner vehiculo_id?? y conductor_id??
+                'vehiculo_id' => 'required|exists:vehiculos,matricula',
+                'conductor_id' => 'required|exists:conductors,dni',
             ],
             [
-                'identificador.required' => 'El identificador es obligatorio',
+                //'identificador.required' => 'El identificador es obligatorio',
                 'fecha.required' => 'La fecha es obligatoria',
                 'duracion.required' => 'La duracion del viaje es obligatoria',
                 'origen.required' => 'El origen de salida es obligatorio',
@@ -157,10 +162,12 @@ class ViajeController extends Controller
                 'km.required' => 'El numero de KM es obligatorio',
                 'tarifa.required' => 'La tarifa es obligatoria',
                 'tarifa.in' => 'La tarifa debe ser ESTANDAR o PREMIUM',
+                'vehiculo_id.required' => 'El vehiculo es obligatorio',
+                'conductor_id.required' => 'El conductor es obligatorio',
             ]);
         }
         catch(\Illuminate\Database\QueryException $e){
-            return redirect()->back()->withErrors(['error' => 'Error al modificar el viaje. Quizás ya existe un viaje con ese identificador.']);
+            return redirect()->back()->withErrors(['error' => 'Error al modificar el viaje.']);
         }
 
         $viaje->update($request->all());
@@ -178,10 +185,22 @@ class ViajeController extends Controller
     {
         //
     }
-
+/*
     public function destroyByIdentificador($identificador){
         $viaje = Viaje::where('identificador', $identificador)->first();
         $viaje->delete();
         return redirect()->route('viaje.index');
+    }*/
+    public function destroyByIdentificador($identificador){
+        $viaje = Viaje::where('identificador', $identificador)->first();
+    
+        if ($viaje) {
+            $viaje->delete();
+            return redirect()->route('viaje.index');
+        } else {
+            // Aquí puedes manejar el caso en que el viaje no existe.
+            // Por ejemplo, podrías redirigir al usuario a la página de índice con un mensaje de error.
+            return redirect()->route('viaje.index')->withErrors(['error' => 'No se encontró el viaje con el identificador proporcionado.']);
+        }
     }
 }

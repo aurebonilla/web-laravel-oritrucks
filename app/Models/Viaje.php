@@ -15,6 +15,8 @@ class Viaje extends Model
      * @var array<int, string>
      */
     protected $primaryKey = 'identificador';
+    protected $keyType = 'string';
+
 
     protected $fillable = [
         'identificador',
