@@ -6,6 +6,7 @@
     <style>
         .form-container {
             display: flex;
+            flex-direction: column;  /* Cambiado de 'row' a 'column' */
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -37,6 +38,7 @@
 @endif
 
 <div class="form-container">
+    <h2 style="text-align: center;">Crear Vehículo</h2>
     <form action="{{ route('vehiculo.store') }}" method="POST">
         @csrf
         <label for="matricula">Matrícula:</label>

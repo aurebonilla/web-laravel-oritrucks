@@ -14,10 +14,12 @@ class Vehiculo extends Model
      * @var array<int, string>
      */
     protected $primaryKey = 'matricula';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'matricula',
-        'tipo', // No sé como poner aún tipo de vehículo
+        'tipo',
     ];
 
     public function viajes()

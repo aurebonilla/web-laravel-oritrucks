@@ -28,3 +28,8 @@ Route::post('/signup', [SignUpController::class, 'store'])->name('cliente.store'
 
 Route::get('/vehiculos/create', [VehiculoController::class, 'create'])->name('vehiculo.create');
 Route::post('/vehiculos', [VehiculoController::class, 'store'])->name('vehiculo.store');
+Route::get('/vehiculos', [VehiculoController::class, 'index'])->name('vehiculos.index');
+Route::delete('/vehiculos/{matricula}', [VehiculoController::class, 'destroy'])->name('vehiculos.destroy');
+Route::get('/vehiculos/{matricula}/edit', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
+Route::put('/vehiculos/{matricula}', [VehiculoController::class, 'update'])->name('vehiculos.update');
+
