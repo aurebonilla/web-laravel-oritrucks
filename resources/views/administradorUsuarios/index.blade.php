@@ -232,7 +232,6 @@
         <table class="usuarios-table">
             <tr>
                 <th>Nombre_Usuario</th>
-                <th>Contraseña</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
@@ -245,7 +244,6 @@
             @forelse ($usuarios as $usuario)
             <tr>
                 <td>{{ $usuario->nombre_usuario }}</td>    
-                <td>{{ $usuario->password }}</td>
                 <td>{{ $usuario->nombre }}</td>
                 <td>{{ $usuario->apellidos }}</td>
                 <td>{{ $usuario->dni }}</td>

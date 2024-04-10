@@ -10,11 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+
 class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -54,6 +53,13 @@ class Usuario extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+
+    public $timestamps = true;
 
 
     public function viajes()
