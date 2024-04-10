@@ -13,31 +13,55 @@
             text-align: center;
             color:white;
             width: 20%;
-            background-color: #000;
+            background-color: #333;
             padding: 20px;
-            margin-top: 200px;
+            margin-top: 150px;
             margin-left: 15px;
             margin-bottom: 120px;
             float: left; 
-            border-radius: 25px;
-            font-size: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Roboto', sans-serif;
+        }
+        #banner_vertical .imagen {
+            margin-bottom: 20px;
         }
 
+        #banner_vertical img {
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        #banner_vertical .Usuario_y_Paginas {
+            font-family: 'Segoe UI',sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: white; /* Cambia el color según tus preferencias */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 5px 0;
+
+        }
         #banner_vertical button {
             display: block;
             width: 100%;
-            padding: 50px;
-            margin-bottom: 5px;
-            background-color: #333;
+            padding: 25px;
+            margin: 5px 0;
+            background-color: #007bff; /* Cambia el color según tus preferencias */
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 23px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            margin-bottom: 25px;
         }
 
         #banner_vertical button:hover {
-            background-color: #555;
+            background-color: #0056b3;
         }
 
         #Titulo_y_tabla {
@@ -51,6 +75,18 @@
             
         }
 
+        h1 {
+                    width: 70%;
+                    color: white;
+                    text-align: center;
+                    padding: 10px;
+                    background-color: #007bff; 
+                    margin: 0 auto; 
+                    border-radius: 10px;
+                    margin-top: 20px;
+                    margin-bottom: 20px; 
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+                }
         .usuarios-table {
             width: 80%;
             margin: 25px auto;
@@ -68,7 +104,7 @@
         }
 
         .usuarios-table th {
-            background-color: #f93e3e;
+            background-color: #007bff;
             color: #ffffff;
             text-align: left;
         }
@@ -99,8 +135,15 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .btn-delete:hover {
+            background-color: #f81c1c;
+        }
+        .btn-crear,
+        .btn-filtrar,
+        .btn-ordenar,
+        .btn-refrescar,
         .btn-modificar{
-            background-color: #4CAF50;
+            background-color: #5aa4f7;
             padding: 10px;
             color: #fff;
             text-transform: uppercase;
@@ -108,19 +151,39 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
-        h1 {
-            width: 70%;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            background-color: #f93e3e; 
-            margin: 0 auto; 
-            border-radius: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px; 
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+        .btn-crear:hover,
+        .btn-filtrar:hover,
+        .btn-ordenar:hover,
+        .btn-refrescar:hover,
+        .btn-modificar:hover {
+            background-color: #0056b3;
         }
+
+        .filtros-dropdown,
+        .orden-dropdown{
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .filtros-dropdown a,
+        .orden-dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .filtros-dropdown a:hover,
+        .orden-dropdown a:hover {
+            background-color: #ddd;
+        }
+        
 
     </style>
 </head>
@@ -151,15 +214,18 @@
 </script>
 <body>
     <div id="banner_vertical">
-        <div>ORITRUCKS COMPANY</div>
-        <div>USUARIO</div>
+        <div class="imagen">
+            <img src="{{ asset('img/favicon.jpg') }}" alt="foto">
+        </div>
+        <h1>ORITRUCKS COMPANY</h1>
+        <p class="Usuario_y_Paginas">USUARIO</p>
         <button>CONFIGURACION</button>
-        <div>PAGINAS</div>
+        <p class="Usuario_y_Paginas">PÁGINAS</p>
         <button>Clientes</button>
         <button>Conductores</button>
         <button>Viajes</button>
-        <button>Vehiculos</button>
-        <button>Cerrar Sesion</button>
+        <button>Vehículos</button>
+        <button>Cerrar Sesión</button>
     </div>
     <div id="Titulo_y_tabla">
         <h1>Listado de Usuarios</h1>
@@ -207,12 +273,12 @@
             <div style="text-align: center; margin-top: 20px;">
 
                 <form action="{{ route('administradorUsuarios.create') }}" style="display: inline-block;">
-                    <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                    <button type="submit" class="btn btn-crear">Crear Usuario</button>
                 </form>
                 
                 <div style="display: inline-block; vertical-align: top;">
-                <button onclick="mostrarFiltros()">Filtrar</button>
-                    <div id="filtros" style="display: none;">
+                <button class="btn btn-filtrar" onclick="mostrarFiltros()">Filtrar</button>
+                    <div class="filtros-dropdown" id="filtros">
                     <form action="{{ route('administradorUsuarios.index') }}" method="GET">
                         <select name="tipo_filtro">
                             <option value="">Seleccionar filtro</option>
@@ -227,13 +293,13 @@
                             <option value="menor">Menor de ...</option>
                         </select>
                         <input type="text" name="valor_filtro">
-                        <button type="submit">Filtrar</button>
+                        <button class="btn btn-filtrar" type="submit">Filtrar</button>
                     </form>
                     </div>
                 </div>
                 <div style="display: inline-block; vertical-align: top;">
-                    <button onclick="mostrarOrden()">Ordenar</button>
-                        <div id="orden" style="display: none;">
+                    <button class="btn btn-ordenar" onclick="mostrarOrden()">Ordenar</button>
+                        <div class="orden-dropdown" id="orden" >
                             <form action="{{ route('administradorUsuarios.index') }}" method="GET">
                                 <select name="orden">
                                     <option value="">Seleccionar orden</option>
@@ -244,12 +310,12 @@
                                     <option value="creacion_asc">Última Creación (Antiguo a Reciente)</option>
                                     <option value="creacion_desc">Última Creación (Reciente a Antiguo)</option>
                                 </select>
-                                <button type="submit">Ordenar</button>
+                                <button type="submit" class="btn btn-ordenar">Ordenar</button>
                             </form>
                         </div>
                 </div>
                     <form action="{{ route('administradorUsuarios.index') }}" method="GET" style="display: inline-block;">
-                        <button type="submit" class="btn btn-primary">Refrescar</button>
+                        <button type="submit"class="btn btn-refrescar">Refrescar</button>
                     </form>
             </div>
         </table>
