@@ -7,6 +7,7 @@ use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdministradorUsuariosController;
+use App\Models\Conductor;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::put('/administradorUsuarios/{dni}', [AdministradorUsuariosController::cla
 
 // Rutas de Conductor
 Route::resource('conductor', ConductorController::class);
+Route::get('/conductor', [ConductorController::class, 'index'])->name('conductor.index');
 Route::delete('/conductor/email/{email}', [ConductorController::class, 'destroyByEmail']);
 Route::get('/conductor/edit/{dni}', [ConductorController::class, 'edit']);
 Route::get('/sign-in', function () {
@@ -60,5 +62,6 @@ Route::get('/sign-in', function () {
 
 // Rutas de Viaje
 Route::resource('viaje', ViajeController::class);
+Route::get('/viaje', [ConductorController::class, 'index'])->name('viaje.index');
 Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, 'destroyByIdentificador']);
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
