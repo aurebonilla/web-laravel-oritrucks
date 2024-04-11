@@ -19,7 +19,7 @@ class SignUpController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'usuario' => 'required',
+            'nombre_usuario' => 'required',
             'password' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
@@ -32,7 +32,7 @@ class SignUpController extends Controller
 
     
         $usuario = new Usuario();
-        $usuario->usuario = $validated['usuario'];
+        $usuario->nombre_usuario = $validated['nombre_usuario'];
         $usuario->password = Hash::make($validated['password']);
         $usuario->nombre = $validated['nombre'];
         $usuario->apellidos = $validated['apellidos'];

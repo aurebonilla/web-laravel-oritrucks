@@ -8,7 +8,7 @@
     <div class="container">
         <h1>Usuario creado</h1>
         <hr>
-          <b>Usuario:</b> {{$usuario->usuario}}
+          <b>Usuario:</b> {{$usuario->nombre_usuario}}
           <br>
           <b>Nombre:</b> {{$usuario->nombre}}
           <br>

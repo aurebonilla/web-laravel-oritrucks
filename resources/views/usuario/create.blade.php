@@ -16,8 +16,8 @@
       <div class="content">
       <form method="POST" action="{{ route('usuario.store') }}">
         @csrf
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario">
+        <label for="nombre_usuario">Usuario:</label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario">
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password">
