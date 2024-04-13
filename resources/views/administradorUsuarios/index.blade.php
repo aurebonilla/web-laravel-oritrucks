@@ -15,6 +15,7 @@
             background-color: #333;
             padding: 20px;
             margin-top: 100px;
+            margin-top: 100px;
             margin-left: 15px;
             margin-bottom: 120px;
             float: left; 
@@ -37,6 +38,7 @@
             font-size: 28px;
             font-weight: bold;
             color: white; 
+            color: white; 
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 5px 0;
@@ -44,6 +46,10 @@
         }
         #banner_vertical button {
             display: block;
+            width: 100%; 
+            padding: 20px;
+            margin: 5px auto;
+            background-color: #007bff; 
             width: 100%; 
             padding: 20px;
             margin: 5px auto;
@@ -63,6 +69,7 @@
             background-color: #0056b3;
         }
         
+        
         #Titulo_y_tabla {
             width: 70%;
             margin-top: 107px;
@@ -77,6 +84,7 @@
         }
 
         h1 {
+                    width: 80%;
                     width: 80%;
                     color: white;
                     text-align: center;
@@ -220,17 +228,21 @@
         </div>
         <h1>ORITRUCKS COMPANY</h1>
         <p class="Usuario_y_Paginas">USUARIO</p>
-        <button >CONFIGURACION</button>
+        <button  >CONFIGURACION</button>
         <p class="Usuario_y_Paginas">PÁGINAS</p>
+        <form action="{{ route('administradorUsuarios.index') }}" method="GET">
         <form action="{{ route('administradorUsuarios.index') }}" method="GET">
             <button>Usuarios</button>
         </form>
         <form action="{{ route('conductor.index') }}" method="GET" >
+        <form action="{{ route('conductor.index') }}" method="GET" >
             <button>Conductores</button>
         </form>
         <form action="{{ route('viaje.index') }}" method="GET" >
+        <form action="{{ route('viaje.index') }}" method="GET" >
             <button>Viajes</button>
         </form>
+        <form action="{{ route('vehiculos.index') }}" method="GET">
         <form action="{{ route('vehiculos.index') }}" method="GET">
             <button>Vehiculos</button>
         </form>
