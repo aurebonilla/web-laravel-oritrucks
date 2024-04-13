@@ -8,14 +8,13 @@
         body {
             font-family: Arial, sans-serif;
         }
-
         #banner_vertical {
             text-align: center;
             color:white;
-            width: 20%;
+            width: 15%;
             background-color: #333;
             padding: 20px;
-            margin-top: 150px;
+            margin-top: 100px;
             margin-left: 15px;
             margin-bottom: 120px;
             float: left; 
@@ -37,7 +36,7 @@
             font-family: 'Segoe UI',sans-serif;
             font-size: 28px;
             font-weight: bold;
-            color: white; /* Cambia el color según tus preferencias */
+            color: white; 
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 5px 0;
@@ -45,10 +44,10 @@
         }
         #banner_vertical button {
             display: block;
-            width: 100%;
-            padding: 25px;
-            margin: 5px 0;
-            background-color: #007bff; /* Cambia el color según tus preferencias */
+            width: 100%; 
+            padding: 20px;
+            margin: 5px auto;
+            background-color: #007bff; 
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -63,20 +62,22 @@
         #banner_vertical button:hover {
             background-color: #0056b3;
         }
-
+        
         #Titulo_y_tabla {
             width: 70%;
-            margin-top: 200px;
+            margin-top: 107px;
             margin-bottom: 20px;
-            margin-left: 150px;
+            margin-left: 75px;
+            margin-right: 75px;
             border-radius: 10px;
             float: left; /* Agregado */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            background-color: white;
             
         }
 
         h1 {
-                    width: 70%;
+                    width: 80%;
                     color: white;
                     text-align: center;
                     padding: 10px;
@@ -212,25 +213,25 @@
         }
     }
 </script>
-<body>
+<body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
     <div id="banner_vertical">
         <div class="imagen">
-            <img src="{{ asset('img/favicon.jpg') }}" alt="foto">
+            <img src="{{ asset('img/favicon .jpg') }}" alt="foto">
         </div>
         <h1>ORITRUCKS COMPANY</h1>
         <p class="Usuario_y_Paginas">USUARIO</p>
-        <button>CONFIGURACION</button>
+        <button >CONFIGURACION</button>
         <p class="Usuario_y_Paginas">PÁGINAS</p>
-        <form action="{{ route('administradorUsuarios.index') }}" method="GET" style="display: inline-block;">
+        <form action="{{ route('administradorUsuarios.index') }}" method="GET">
             <button>Usuarios</button>
         </form>
-        <form action="{{ route('conductor.index') }}" method="GET" style="display: inline-block;">
+        <form action="{{ route('conductor.index') }}" method="GET" >
             <button>Conductores</button>
         </form>
-        <form action="{{ route('viaje.index') }}" method="GET" style="display: inline-block;">
+        <form action="{{ route('viaje.index') }}" method="GET" >
             <button>Viajes</button>
         </form>
-        <form action="{{ route('vehiculos.index') }}" method="GET" style="display: inline-block;">
+        <form action="{{ route('vehiculos.index') }}" method="GET">
             <button>Vehiculos</button>
         </form>
         <button>Cerrar Sesión</button>
@@ -328,4 +329,3 @@
     </div>
 </body>
 </html>
-

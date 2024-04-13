@@ -1,19 +1,85 @@
-<style>
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .form-container form {
-        display: flex;
-        flex-direction: column;
-    }
-    .form-container form input {
-        margin-bottom: 1em;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+        }
 
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin: 100px auto;
+            padding: 20px;
+            max-width: 500px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-container form label {
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form-container form input,
+        .form-container form select {
+            margin-bottom: 20px;
+            width: calc(100% - 22px); /* Width - padding */
+            padding: 10px; /* Aumento del tamaño de fuente */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px; /* Tamaño de fuente aumentado */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
@@ -34,11 +100,9 @@
     <form action="{{ route('viaje.update', $viaje->identificador) }}" method="POST">
         @csrf
         @method('PUT')
-        <!--<label for="identificador">Identificador:</label>
-        <input type="number" id="identificador" name="identificador" value="{{ $viaje->identificador }}">-->
 
         <label for="fecha">Fecha de Viaje:</label>
-        <input type="date" id="fecha" name="fecha" value="{{ $viaje->fecha}}">
+        <input type="date" id="fecha" name="fecha" value="{{ $viaje->fecha }}">
 
         <label for="duracion">Duracion:</label>
         <input type="number" id="duracion" name="duracion" value="{{ $viaje->duracion }}">
@@ -75,3 +139,5 @@
         <input type="submit" value="Modificar Viaje">
     </form>
 </div>
+</body>
+</html>

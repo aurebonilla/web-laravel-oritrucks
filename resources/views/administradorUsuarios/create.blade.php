@@ -77,7 +77,7 @@
       }
     </style>
   </head>
-  <body>
+  <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
     @if (session('error'))
     <div class="alert alert-danger">
       {{ session('error') }}

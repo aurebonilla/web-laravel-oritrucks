@@ -62,6 +62,6 @@ Route::get('/sign-in', function () {
 
 // Rutas de Viaje
 Route::resource('viaje', ViajeController::class);
-Route::get('/viaje', [ConductorController::class, 'index'])->name('viaje.index');
+Route::get('/viaje', [ViajeController::class, 'index'])->name('viaje.index');
 Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, 'destroyByIdentificador']);
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
