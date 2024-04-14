@@ -16,6 +16,6 @@ class UsuarioController extends Controller
         return back()->with('error', 'No existe el usuario con el DNI proporcionado');
     }
 
-    return view('usuario.inicio', compact('usuario'));
+    return view('usuario.configuracion', compact('usuario'));
 }
 }

@@ -68,4 +68,4 @@ Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, '
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
 
 // Configuracion
-Route::get('/inicio/{dni}', [UsuarioController::class, 'show'])->name('usuario.show');
+Route::get('/configuracion/{dni}', [UsuarioController::class, 'show'])->name('usuario.show');

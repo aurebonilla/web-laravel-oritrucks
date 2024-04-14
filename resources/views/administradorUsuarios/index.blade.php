@@ -228,21 +228,22 @@
         </div>
         <h1>ORITRUCKS COMPANY</h1>
         <p class="Usuario_y_Paginas">USUARIO</p>
-        <button  >CONFIGURACION</button>
+        
+        <button>CONFIGURACION</button>
         <p class="Usuario_y_Paginas">PÁGINAS</p>
-        <form action="{{ route('administradorUsuarios.index') }}" method="GET">
+        
         <form action="{{ route('administradorUsuarios.index') }}" method="GET">
             <button>Usuarios</button>
         </form>
-        <form action="{{ route('conductor.index') }}" method="GET" >
+        
         <form action="{{ route('conductor.index') }}" method="GET" >
             <button>Conductores</button>
         </form>
-        <form action="{{ route('viaje.index') }}" method="GET" >
+        
         <form action="{{ route('viaje.index') }}" method="GET" >
             <button>Viajes</button>
         </form>
-        <form action="{{ route('vehiculos.index') }}" method="GET">
+        
         <form action="{{ route('vehiculos.index') }}" method="GET">
             <button>Vehiculos</button>
         </form>
