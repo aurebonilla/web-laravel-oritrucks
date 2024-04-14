@@ -7,6 +7,7 @@ use App\Http\Controllers\SignUpController;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdministradorUsuariosController;
+use App\Http\Controllers\UsuarioController;
 use App\Models\Conductor;
 
 /*
@@ -65,3 +66,6 @@ Route::resource('viaje', ViajeController::class);
 Route::get('/viaje', [ViajeController::class, 'index'])->name('viaje.index');
 Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, 'destroyByIdentificador']);
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
+
+// Configuracion
+Route::get('/inicio/{dni}', [UsuarioController::class, 'show'])->name('usuario.show');
