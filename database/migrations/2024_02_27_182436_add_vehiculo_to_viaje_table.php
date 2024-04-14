@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::table('viajes', function (Blueprint $table) {
             if (!Schema::hasColumn('viajes', 'vehiculo_id')) {
-                $table->string('vehiculo_id')->unique();
+                $table->string('vehiculo_id');
                 $table->foreign('vehiculo_id')->references('matricula')->on('vehiculos');
             }
         });

@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Vehículo</title>
-    <style>
-        .form-container {
-            display: flex;
-            flex-direction: column;  /* Cambiado de 'row' a 'column' */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .form-container form {
-            display: flex;
-            flex-direction: column;
-        }
-        .form-container form input, .form-container form select {
-            margin-bottom: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 </head>
-<body>
+<body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -41,7 +26,7 @@
     <h2 style="text-align: center;">Crear Vehículo</h2>
     <form action="{{ route('vehiculo.store') }}" method="POST">
         @csrf
-        <label for="matricula">Matrícula:</label>
+        <label for="nombre">Matrícula:</label>
         <input type="text" id="matricula" name="matricula">
 
         <label for="tipo">Tipo de Vehículo:</label>
