@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('viajes', function (Blueprint $table) {
             if (!Schema::hasColumn('viajes', 'conductor_id')) {
-                $table->string('conductor_id')->unique();
+                $table->string('conductor_id');
                 $table->foreign('conductor_id')->references('dni')->on('conductors');
             }
         });
