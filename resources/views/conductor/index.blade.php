@@ -139,6 +139,9 @@
                 </form>
         </div>
     </table>
+    <div class="pagination">
+        {{ $conductores->links()}}
+    </div>
 </div>
 </body>
 </html>
