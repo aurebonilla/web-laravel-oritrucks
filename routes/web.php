@@ -23,8 +23,7 @@ use App\Models\Conductor;
 Route::get('/', function () {
     return view('index');
 });
-
-
+Route::get('/profile', 'AuthController@showProfile')->name('usuario.profile');
 //rutas vehiculos
 
 

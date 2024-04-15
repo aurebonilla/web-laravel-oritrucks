@@ -5,6 +5,7 @@
     <title>Editar Vehículo</title>
 </head>
 <body>
+<body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 <h1>Editar Vehículo</h1>
 <form action="{{ route('vehiculos.update', $vehiculo->matricula) }}" method="POST">
     @csrf

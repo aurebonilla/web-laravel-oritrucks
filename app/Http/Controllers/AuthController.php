@@ -16,11 +16,11 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
+    
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+            return redirect()->route('usuario.profile');
         }
-
+    
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
@@ -31,5 +31,12 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect('usuario.login');
+    }
+    
+    public function showProfile()
+    {
+        $usuario = Auth::user(); // Obtiene el usuario autenticado
+    
+        return view('usuario.profile', compact('usuario'));
     }
 }
