@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Conductores</title>
+</head>
+<body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 <style>
     .form-container {
         display: flex;
@@ -57,3 +64,5 @@
         <input type="submit" value="Crear Conductor">
     </form>
 </div>
+</body>
+</html>
