@@ -3,22 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Conductores</title>
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
-<style>
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .form-container form {
-        display: flex;
-        flex-direction: column;
-    }
-    .form-container form input {
-        margin-bottom: 1em;
-    }
-</style>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
     <div class="form-container">
         <form action="{{ route('conductor.update', $conductor->dni) }}" method="POST">
