@@ -79,9 +79,29 @@ class ViajeController extends Controller
                 'tarifa.in' => 'La tarifa debe ser ESTANDAR o PREMIUM',
 
                 'vehiculo_id.required' => 'La tarifa es obligatoria',
-                'tarifa.in' => 'La tarifa debe ser ESTANDAR o PREMIUM',
+                'conductor_id.required' => 'El conductor es obligatorio',
 
             ]);
+
+            // Verificar si el conductor ya tiene un viaje en la misma fecha
+        $viajeExistente = Viaje::where('conductor_id', $request->conductor_id)
+        ->where('fecha', $request->fecha)
+        ->first();
+
+        if ($viajeExistente) {
+            return redirect()->back()->withErrors(['error' => 'El conductor ya tiene un viaje programado para esta fecha.']);
+        }
+
+        // Verificar si el vehículo ya tiene un viaje en la misma fecha
+        $viajeExistente = Viaje::where('vehiculo_id', $request->vehiculo_id)
+            ->where('fecha', $request->fecha)
+            ->first();
+
+        if ($viajeExistente) {
+            return redirect()->back()->withErrors(['error' => 'El vehículo ya tiene un viaje programado para esta fecha.']);
+        }
+
+
             $viaje = new Viaje();
             $viaje->identificador = uniqid(); // Genera un identificador único automáticamente
             //$viaje->identificador = $request->identificador;
@@ -175,6 +195,27 @@ class ViajeController extends Controller
                 'vehiculo_id.required' => 'El vehiculo es obligatorio',
                 'conductor_id.required' => 'El conductor es obligatorio',
             ]);
+
+
+            // Verificar si el conductor ya tiene un viaje en la misma fecha
+        $viajeExistente = Viaje::where('conductor_id', $request->conductor_id)
+        ->where('fecha', $request->fecha)
+        ->first();
+
+        if ($viajeExistente) {
+            return redirect()->back()->withErrors(['error' => 'El conductor ya tiene un viaje programado para esta fecha.']);
+        }
+
+        // Verificar si el vehículo ya tiene un viaje en la misma fecha
+        $viajeExistente = Viaje::where('vehiculo_id', $request->vehiculo_id)
+            ->where('fecha', $request->fecha)
+            ->first();
+
+        if ($viajeExistente) {
+            return redirect()->back()->withErrors(['error' => 'El vehículo ya tiene un viaje programado para esta fecha.']);
+        }
+
+
         }
         catch(\Illuminate\Database\QueryException $e){
             return redirect()->back()->withErrors(['error' => 'Error al modificar el viaje.']);

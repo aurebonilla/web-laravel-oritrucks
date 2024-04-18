@@ -25,6 +25,24 @@ body {
     border-radius: 50%;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+.pagination li {
+    margin: 0 0.5em;
+}
+
+.pagination a {
+    color: #333;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
 
 #banner_vertical .Usuario_y_Paginas {
     font-family: 'Segoe UI',sans-serif;

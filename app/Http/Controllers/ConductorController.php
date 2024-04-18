@@ -23,7 +23,7 @@ class ConductorController extends Controller
             return $this->ordenar($request);
         }
 
-        $conductores = Conductor::all();
+        $conductores = Conductor::paginate(5);
 
         return view('conductor.index', compact('conductores'));
     }
@@ -203,7 +203,7 @@ class ConductorController extends Controller
             }
         }
 
-        $conductores = $query->get();
+        $conductores = $query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
 
         return view('conductor.index', compact('conductores'));
     }
@@ -236,7 +236,7 @@ class ConductorController extends Controller
                 break;
         }
 
-        $conductores = $query->get();
+        $conductores = $query->paginate(5)->appends(['orden' => $orden]);
 
         return view('conductor.index', compact('conductores'));
     }
