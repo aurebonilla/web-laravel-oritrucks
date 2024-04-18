@@ -23,7 +23,8 @@ class AdministradorUsuariosController extends Controller
             return $this->ordenar($request);
         }
 
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::paginate(5);
+
 
         return view('administradorUsuarios.index', compact('usuarios'));
     }
@@ -204,7 +205,7 @@ class AdministradorUsuariosController extends Controller
             }
         }
 
-        $usuarios = $query->get();
+        $usuarios = $query->$query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
 
         return view('administradorUsuarios.index', compact('usuarios'));
     }
@@ -236,7 +237,7 @@ class AdministradorUsuariosController extends Controller
                 break;
         }
 
-        $usuarios = $query->get();
+        $usuarios = $query->paginate(5)->appends(['orden' => $orden]);
 
         return view('administradorUsuarios.index', compact('usuarios'));
     }
