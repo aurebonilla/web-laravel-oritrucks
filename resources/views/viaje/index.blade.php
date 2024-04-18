@@ -29,6 +29,31 @@
         </form>
         <button>Cerrar Sesión</button>
     </div>
+    <script>
+    function mostrarFiltros() 
+    {
+        var filtros = document.getElementById('filtros');
+        var orden = document.getElementById('orden');
+        if (filtros.style.display === 'none') {
+            filtros.style.display = 'block';
+            orden.style.display = 'none';
+        } else {
+            filtros.style.display = 'none';
+        }
+    }
+
+    function mostrarOrden() 
+    {
+        var orden = document.getElementById('orden');
+        var filtros = document.getElementById('filtros');
+        if (orden.style.display === 'none') {
+            orden.style.display = 'block';
+            filtros.style.display = 'none';
+        } else {
+            orden.style.display = 'none';
+        }
+    }
+</script>
     <div id="Titulo_y_tabla">
         <h1>Listado de Viajes</h1>
         <table class="table">
