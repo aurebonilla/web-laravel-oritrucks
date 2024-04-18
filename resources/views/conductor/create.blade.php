@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Conductores</title>
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 </head>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
-<style>
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .form-container form {
-        display: flex;
-        flex-direction: column;
-    }
-    .form-container form input {
-        margin-bottom: 1em;
-    }
-</style>
-
 @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}

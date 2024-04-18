@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset('css/editviaje.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 @if (session('error'))
