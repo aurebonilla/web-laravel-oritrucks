@@ -28,7 +28,7 @@ class ViajeController extends Controller
         }
 
 
-        $viajes = Viaje::all();
+        $viajes = Viaje::paginate(5);
         return view('viaje.index', compact('viajes'));
     }
 
@@ -272,7 +272,7 @@ class ViajeController extends Controller
             }
         }
 
-        $viajes = $query->get();
+        $viajes = $query->$query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
 
         return view('viaje.index', compact('viajes'));
     }
@@ -304,7 +304,7 @@ class ViajeController extends Controller
                 break;
         }
 
-        $viajes = $query->get();
+        $viajes = $query->paginate(5)->appends(['orden' => $orden]);
 
         return view('viaje.index', compact('viajes'));
     }

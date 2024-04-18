@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Viajes</title>
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link href="{{asset('css/index.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
     <div id="banner_vertical">
@@ -112,11 +112,15 @@
                         <button type="submit" class="btn btn-ordenar">Ordenar</button>
                     </form>
                 </div>
-            </div>
-            <form action="{{ route('viaje.index') }}" method="GET" style="display: inline-block;">
-                <button type="submit" class="btn btn-refrescar">Refrescar</button>
-            </form>
+                </div>
+                <form action="{{ route('viaje.index') }}" method="GET" style="display: inline-block;">
+                    <button type="submit" class="btn btn-refrescar">Refrescar</button>
+                </form>
         </div>
+    </table>
+    <div class="pagination">
+        {{ $viajes->links()}}
     </div>
+</div>
 </body>
 </html>
