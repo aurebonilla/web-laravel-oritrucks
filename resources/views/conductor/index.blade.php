@@ -101,7 +101,7 @@
             </form>
             <div style="display: inline-block; vertical-align: top;">
             <button class="btn btn-filtrar" onclick="mostrarFiltros()">Filtrar</button>
-                <div id="filtros" style="display: none;">
+                <div class="filtros-dropdown" id="filtros" style="display: none;">
                 <form action="{{ route('conductor.index') }}" method="GET">
                     <select name="tipo_filtro">
                         <option value="">Seleccionar filtro</option>
@@ -121,7 +121,7 @@
             </div>
             <div style="display: inline-block; vertical-align: top;">
                 <button class="btn btn-ordenar" onclick="mostrarOrden()">Ordenar</button>
-                    <div id="orden" style="display: none;">
+                    <div class="orden-dropdown" id="orden" style="display: none;">
                         <form action="{{ route('conductor.index') }}" method="GET">
                             <select name="orden">
                                 <option value="">Seleccionar orden</option>
