@@ -272,7 +272,7 @@ class ViajeController extends Controller
             }
         }
 
-        $viajes = $query->$query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
+        $viajes = $query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
 
         return view('viaje.index', compact('viajes'));
     }
