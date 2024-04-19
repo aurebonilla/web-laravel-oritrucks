@@ -26,7 +26,7 @@
         <div style="color: red;">{{ $errors->first('tipo') }}</div>
     @endif
 
-    <button type="submit">Actualizar Vehículo</button>
+    <input type="submit" value="Actualizar Vehículo">
 </form>
 </div>
 </body>
