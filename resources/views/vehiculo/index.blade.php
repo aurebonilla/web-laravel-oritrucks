@@ -12,7 +12,9 @@
         </div>
         <h2>ORITRUCKS COMPANY</h2>
         <p class="Usuario_y_Paginas">USUARIO</p>
-        <button>CONFIGURACION</button>
+        <form action="{{ route('usuario.show') }}" method="GET">
+            <button>CONFIGURACION</button>
+        </form>
         <p class="Usuario_y_Paginas">PÁGINAS</p>
         <form action="{{ route('administradorUsuarios.index') }}" method="GET">
             <button>Usuarios</button>
@@ -34,7 +36,7 @@
     </div>
 @endif
 
-<div id="Titulo_y_tabla">
+<div id="Titulo_y_tabla" style="text-align: center; margin-top: 20px;">
             <h1>Listado de Vehiculos</h1>
     <a href="{{ route('vehiculo.create') }}"><button type="submit" class="btn btn-crear">Crear Vehículo</button></a>
 

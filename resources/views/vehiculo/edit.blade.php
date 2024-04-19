@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Vehículo</title>
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 </head>
 <body>

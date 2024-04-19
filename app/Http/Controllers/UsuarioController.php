@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UsuarioController extends Controller
 {
-    public function show($dni)
-{
-    $usuario = Usuario::where('dni', $dni)->first();
+    public function show()
+    {
+        $usuario = Usuario::first();
 
-    if (!$usuario) {
-        return back()->with('error', 'No existe el usuario con el DNI proporcionado');
+        if (!$usuario) {
+            return back()->with('error', 'No hay usuarios disponibles');
+        }
+
+        return view('usuario.configuracion', compact('usuario'));
     }
-
-    return view('usuario.configuracion', compact('usuario'));
-}
 }

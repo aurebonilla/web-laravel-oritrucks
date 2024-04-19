@@ -12,7 +12,9 @@
         </div>
         <h2>ORITRUCKS COMPANY</h2>
         <p class="Usuario_y_Paginas">USUARIO</p>
-        <button>CONFIGURACION</button>
+        <form action="{{ route('usuario.show') }}" method="GET">
+            <button>CONFIGURACION</button>
+        </form>
         <p class="Usuario_y_Paginas">PÁGINAS</p>
         <form action="{{ route('administradorUsuarios.index') }}" method="GET">
             <button>Usuarios</button>
