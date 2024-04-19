@@ -205,7 +205,7 @@ class AdministradorUsuariosController extends Controller
             }
         }
 
-        $usuarios = $query->$query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
+        $usuarios =$query->paginate(5)->appends(['tipo_filtro' => $tipo_filtro, 'valor_filtro' => $valor_filtro]);
 
         return view('administradorUsuarios.index', compact('usuarios'));
     }
