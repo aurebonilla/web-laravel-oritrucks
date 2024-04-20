@@ -8,6 +8,7 @@ use App\Models\Conductor;
 
 class ConductorController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
