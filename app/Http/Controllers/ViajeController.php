@@ -110,6 +110,7 @@ class ViajeController extends Controller
             $viaje->origen = $request->origen;
             $viaje->destino = $request->destino;
             $viaje->km = $request->km;
+            $viaje->precio = $request->km * 0.7; // Calcula el precio
             $viaje->tarifa = $request->tarifa;
             $viaje->vehiculo_id = $request->vehiculo_id;
             $viaje->conductor_id = $request->conductor_id;
@@ -215,6 +216,11 @@ class ViajeController extends Controller
         // Actualizar los datos del viaje
         $viaje->update($request->all());
 
+        // Recalcular el precio
+        $precio = $request->km * 0.7;
+        $viaje->precio = $precio;
+        $viaje->save();
+        
         return redirect()->route('viaje.index')->with('success', 'Viaje modificado con éxito');
     } catch (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
