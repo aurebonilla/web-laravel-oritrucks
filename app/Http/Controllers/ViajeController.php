@@ -83,6 +83,9 @@ class ViajeController extends Controller
 
             ]);
 
+            // Calcular el precio dependiendo de la tarifa
+            $precio = $request->km * ($request->tarifa == 'ESTANDAR' ? 0.4 : 0.7);
+
             // Verificar si el conductor ya tiene un viaje en la misma fecha
         $viajeExistente = Viaje::where('conductor_id', $request->conductor_id)
         ->where('fecha', $request->fecha)
@@ -110,10 +113,10 @@ class ViajeController extends Controller
             $viaje->origen = $request->origen;
             $viaje->destino = $request->destino;
             $viaje->km = $request->km;
-            $viaje->precio = $request->km * 0.7; // Calcula el precio
             $viaje->tarifa = $request->tarifa;
             $viaje->vehiculo_id = $request->vehiculo_id;
             $viaje->conductor_id = $request->conductor_id;
+            $viaje->precio = $precio;
             $viaje->save();
     
             return redirect()->route('viaje.index');
@@ -217,10 +220,10 @@ class ViajeController extends Controller
         $viaje->update($request->all());
 
         // Recalcular el precio
-        $precio = $request->km * 0.7;
+        $precio = $request->km * ($request->tarifa == 'ESTANDAR' ? 0.4 : 0.7);
         $viaje->precio = $precio;
         $viaje->save();
-        
+
         return redirect()->route('viaje.index')->with('success', 'Viaje modificado con éxito');
     } catch (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
