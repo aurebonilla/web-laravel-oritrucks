@@ -67,7 +67,6 @@
                 <th>Destino</th>
                 <th>Km</th>
                 <th>Tarifa</th>
-                <th>Precio</th>
                 <th>Vehículo ID</th>
                 <th>Conductor ID</th>
                 <th>Acciones</th>
@@ -81,7 +80,6 @@
                 <td>{{ $viaje->destino }}</td>
                 <td>{{ $viaje->km }}</td>
                 <td>{{ $viaje->tarifa }}</td>
-                <td>{{ $viaje->precio }}</td>
                 <td>{{ $viaje->vehiculo_id }}</td> <!-- Muestra el ID del vehículo -->
                 <td>{{ $viaje->conductor_id }}</td> <!-- Muestra el ID del conductor -->
                 <td>

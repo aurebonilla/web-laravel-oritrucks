@@ -25,7 +25,6 @@ class Viaje extends Model
         'origen',
         'destino',
         'km',
-        'precio',
         'tarifa', // No sé como poner aún tipo de tarifa
         'vehiculo_id',
         'conductor_id',
