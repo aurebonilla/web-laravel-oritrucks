@@ -17,11 +17,17 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'matricula' => 'required|max:255|unique:vehiculos', //Nos aseguramos de que no existe otra matricula igual en la base de datos
+            'matricula' => [
+                'required',
+                'max:255',
+                'regex:/^\d{4}\s?[A-Z]{3}$|^[A-Z]{1,3}-\d{1,4}-[A-Z]{1,3}$/i', // Para matriculas europeas y amercianas
+                'unique:vehiculos'
+            ],
             'tipo' => 'required|in:furgoneta,camion',
-        ],
-        [
-            'matricula.required' => 'La matricula es obligatoria',
+        ], [
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.regex' => 'El formato de la matrícula no es válido.',
+            'matricula.unique' => 'Esta matrícula ya está registrada.',
         ]);
 
         $vehiculo = new Vehiculo();
@@ -46,10 +52,10 @@ class VehiculoController extends Controller
         if ($request->filled('orden') && in_array($request->orden, ['asc', 'desc'])) {
             $query->orderBy('matricula', $request->orden);
         } else {
-            $query->orderBy('matricula', 'asc');  // Default order
+            $query->orderBy('matricula', 'asc');
         }
 
-        $vehiculos = $query->get();
+        $vehiculos = $query->paginate(5);
         return view('vehiculo.index', compact('vehiculos'));
     }
 
@@ -78,9 +84,14 @@ class VehiculoController extends Controller
             'matricula' => [
                 'required',
                 'max:255',
+                'regex:/^\d{4}\s?[A-Z]{3}$|^[A-Z]{1,3}-\d{1,4}-[A-Z]{1,3}$/i', // Acepta matriculas europeas y americanas
                 \Illuminate\Validation\Rule::unique('vehiculos')->ignore($matricula, 'matricula')
             ],
             'tipo' => 'required|in:furgoneta,camion',
+        ], [
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.regex' => 'El formato de la matrícula no es válido.',
+            'matricula.unique' => 'Esta matrícula ya está registrada.',
         ]);
 
         $vehiculo->matricula = $request->matricula;

@@ -80,6 +80,9 @@
             @endforeach
         </tbody>
     </table>
+    <div style="text-align: center;">
+        {{ $vehiculos->appends(request()->except('page'))->links() }}
+    </div>
 </div>
 </body>
 </html>
