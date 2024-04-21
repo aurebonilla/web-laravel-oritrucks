@@ -61,11 +61,16 @@ class VehiculoController extends Controller
 
     //Eliminar un vehiculo
     public function destroy($id)
-    {
-        $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->delete();
-        return redirect()->route('vehiculos.index')->with('success', 'Vehículo eliminado correctamente.');
+{
+    $vehiculo = Vehiculo::findOrFail($id);
+
+    if ($vehiculo->viajes->count() > 0) {
+        return redirect()->route('vehiculos.index')->with('error', 'No se puede eliminar el vehículo porque está asignado a uno o más viajes.');
     }
+
+    $vehiculo->delete();
+    return redirect()->route('vehiculos.index')->with('success', 'Vehículo eliminado correctamente.');
+}
 
     //Mostrar la vista para editar un vehiculo
     public function edit($matricula)
@@ -79,6 +84,10 @@ class VehiculoController extends Controller
     public function update(Request $request, $matricula)
     {
         $vehiculo = Vehiculo::findOrFail($matricula);
+
+        if ($vehiculo->viajes->count() > 0) {
+            return redirect()->route('vehiculos.index')->with('error', 'No se puede modificar el vehículo porque está asignado a uno o más viajes.');
+        }
 
         $request->validate([
             'matricula' => [
