@@ -24,6 +24,6 @@ class Vehiculo extends Model
 
     public function viajes()
     {
-        return $this->hasMany(Viaje::class);
+        return $this->hasMany(Viaje::class, 'vehiculo_id', 'matricula');
     }
 }

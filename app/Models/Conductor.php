@@ -29,6 +29,6 @@ class Conductor extends Model
     
     public function viajes()
     {
-        return $this->hasMany(Viaje::class);
+        return $this->hasMany(Viaje::class, 'conductor_id', 'dni');
     }
 }

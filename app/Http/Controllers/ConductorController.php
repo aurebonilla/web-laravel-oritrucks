@@ -134,6 +134,10 @@ class ConductorController extends Controller
             return redirect()->back()->with('error', 'Conductor no encontrado');
         }
 
+        if ($conductor->viajes->count() > 0) {
+            return redirect()->route('conductor.index')->with('error', 'No se puede modificar el conductor porque está asignado a uno o más viajes.');
+        }
+
         try{
             $request->validate([
                 'nombre' => 'required',
@@ -183,6 +187,11 @@ class ConductorController extends Controller
 
     public function destroyByEmail($email){
         $conductor = Conductor::where('email', $email)->first();
+
+        if ($conductor->viajes->count() > 0) {
+            return redirect()->route('conductor.index')->with('error', 'No se puede eliminar el conductor porque está asignado a uno o más viajes.');
+        }
+
         $conductor->delete();
         return redirect()->route('conductor.index');
     }
