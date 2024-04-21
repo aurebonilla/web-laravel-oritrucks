@@ -5,7 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Vehiculo;
+use App\Models\Usuario;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,5 +33,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(VehiculoSeeder ::class);
         $this->command->info('Vehiculo seeded! ;)');
+
+        $this->call(UsuarioSeeder ::class);
+        $this->command->info('Usuario x dios seeded! ;)');
     }
 }
