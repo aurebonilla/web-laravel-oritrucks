@@ -25,6 +25,7 @@ class Viaje extends Model
         'origen',
         'destino',
         'km',
+        'precio',
         'tarifa', // No sé como poner aún tipo de tarifa
         'vehiculo_id',
         'conductor_id',
@@ -45,6 +46,6 @@ class Viaje extends Model
     public function cliente()
     {
         // Viaje tiene la clave ajena 'cliente_id'
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(Usuario::class);
     }
 }
