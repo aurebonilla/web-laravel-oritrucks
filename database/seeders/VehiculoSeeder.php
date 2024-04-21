@@ -17,10 +17,26 @@ class VehiculoSeeder extends Seeder
 
         DB::table('vehiculos')->insert([
             'matricula' => '3070 JPH',
-            'tipo' => 'camion']);//no se como poner el tipo enum furgoneta 
+            'tipo' => 'camion']);
 
         DB::table('vehiculos')->insert([
             'matricula' => '2697 CSP',
-            'tipo' => 'furgoneta']);//no se como poner el tipo enum camion
+            'tipo' => 'furgoneta']);
+
+        DB::table('vehiculos')->insert([
+            'matricula' => '0962 KLM',
+            'tipo' => 'furgoneta']);
+
+        DB::table('vehiculos')->insert([
+            'matricula' => '2599 BFK',
+            'tipo' => 'camion']);
+
+        DB::table('vehiculos')->insert([
+            'matricula' => '8124 JIL',
+            'tipo' => 'camion']);
+
+        DB::table('vehiculos')->insert([
+            'matricula' => '5671 PLS',
+            'tipo' => 'camion']);
     }
 }
