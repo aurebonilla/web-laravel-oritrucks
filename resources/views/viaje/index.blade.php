@@ -97,7 +97,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="8">No existen Viajes en el Sistema</td>
+                <td colspan="8">No existen Viajes en el Sistema</td> 
             </tr>
             @endforelse
         </table>
