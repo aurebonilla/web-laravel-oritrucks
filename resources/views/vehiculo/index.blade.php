@@ -36,6 +36,12 @@
     </div>
 @endif
 
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <div id="Titulo_y_tabla" style="text-align: center; margin-top: 20px;">
             <h1>Listado de Vehiculos</h1>
     <a href="{{ route('vehiculo.create') }}"><button type="submit" class="btn btn-crear">Crear Vehículo</button></a>
