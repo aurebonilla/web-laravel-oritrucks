@@ -30,6 +30,13 @@
         </form>
         <button>Cerrar Sesión</button>
 </div>
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <script>
     function mostrarFiltros() 
     {
