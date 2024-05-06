@@ -17,8 +17,9 @@ return new class extends Migration
         Schema::create('valoracions', function (Blueprint $table) {
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
-            $table->string('comentario');
-            $table->integer('puntuacion');
+            $table->id()->autoIncrement();
+            $table->text('comentario');
+            $table->float('puntuacion');
             $table->string('viaje_id');  
             $table->foreign('viaje_id')->references('identificador')->on('viajes');
             $table->string('usuario_dni');

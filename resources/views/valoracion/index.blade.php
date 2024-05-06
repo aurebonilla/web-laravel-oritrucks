@@ -80,12 +80,12 @@
             <td>{{ $valoracion->puntuacion }}</td>
             <td>{{ $valoracion->comentario }}</td>
             <td>
-            <form action="/valoracion/{{ $valoracion->viaje_id }}/{{ $valoracion->usuario_dni }}" method="POST">
+            <form action="{{ route('valoracion.destroy', $valoracion->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit"  class="btn btn-delete">Borrar</button>
                 </form>
-                <form action="/valoracion/edit/{{ $valoracion->viaje_id }}/{{ $valoracion->usuario_dni }}" method="GET" style="display: inline-block;">
+                <form action="{{ route('valoracion.edit', $valoracion->id) }}" method="GET" style="display: inline-block;">
                     <button type="submit" class="btn btn-modificar">Modificar</button>
                 </form>
             </td>

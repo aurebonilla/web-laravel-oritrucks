@@ -74,5 +74,8 @@ Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.
 // Rutas de Valoracion
 Route::resource('valoracion', ValoracionController::class);
 Route::get('/valoracion', [ValoracionController::class, 'index'])->name('valoracion.index');
-Route::delete('/valoracion/{viaje_id}/{usuario_dni}', [ValoracionController::class, 'destroy']);
-Route::get('/valoracion/edit/{viaje_id}/{usuario_dni}', [ValoracionController::class, 'edit']);
+Route::delete('/valoracion/{valoracion}', [ValoracionController::class, 'destroy']);
+Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit']);
+
+Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update');
+Route::resource('valoracion', ValoracionController::class)->except(['update']);

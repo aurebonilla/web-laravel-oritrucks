@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Valoracion;
+use Illuminate\Support\Facades\Log;
 class ValoracionController extends Controller
 {
     /**
@@ -48,10 +49,12 @@ class ValoracionController extends Controller
         try{
             $request->validate([
                 'puntuacion' => 'required',
+                'comentario' => 'required',
                 'viaje_id' => 'required',
                 'usuario_dni' => 'required',
             ],
             [
+                'comentario.required' => 'El comentario es obligatorio.',
                 'puntuacion.required' => 'La puntuación es obligatoria.',
                 'viaje_id.required' => 'El viaje es obligatorio.',
                 'usuario_dni.required' => 'El usuario es obligatorio.',
@@ -65,9 +68,15 @@ class ValoracionController extends Controller
     
             return redirect()->route('valoracion.index');
         }
+    
         catch(\Illuminate\Database\QueryException $e){
-            return redirect()->back()->withErrors(['error' => 'Error al enviar la valoración.']);
+            // Log the error message and stack trace
+            Log::error($e->getMessage());
+            Log::error($e->getTraceAsString());
+
+            return redirect()->back()->withErrors(['error' => 'Error al enviar la valoración. Quizá no exista el usuario o el viaje.']);
         }
+
         
     }
 
@@ -89,9 +98,9 @@ class ValoracionController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function edit($viaje_id, $usuario_dni)
+    public function edit($id)
     {
-        $valoracion = Valoracion::where('viaje_id', $viaje_id)->where('usuario_dni', $usuario_dni)->first();
+        $valoracion = Valoracion::find($id);
 
         if (!$valoracion) {
             return redirect()->back()->with('error', 'Valoración no encontrada');
@@ -109,27 +118,30 @@ class ValoracionController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function update(Request $request, $viaje_id, $usuario_dni)
-    {
-        $valoracion = Valoracion::where('viaje_id', $viaje_id)->where('usuario_dni', $usuario_dni)->first();
-
-        if (!$valoracion) {
-            return redirect()->back()->with('error', 'Valoración no encontrada');
-        }
-
-        $request->validate([
-            'puntuacion' => 'required|integer|min:1|max:5',
-        ],
-        [
-            'puntuacion.integer' => 'La puntuación debe ser un número entero',
-            'puntuacion.min' => 'La puntuación debe ser al menos 1',
-            'puntuacion.max' => 'La puntuación debe ser como máximo 5',
-        ]);
-
-        $valoracion->update($request->all());
-
-        return redirect()->route('valoracion.index')->with('success', 'Valoración modificada con éxito');
-    }
+     public function update(Request $request, $id)
+     {
+         $valoracion = Valoracion::find($id);
+ 
+         if (!$valoracion) {
+             return redirect()->back()->with('error', 'Valoración no encontrada');
+         }
+ 
+         $request->validate([
+             'puntuacion' => 'required',
+             'comentario' => 'required',
+         ],
+         [
+             'comentario.required' => 'El comentario es obligatorio',
+             'puntuacion.required' => 'La puntuación es obligatoria',
+         ]);
+ 
+         // Actualizar la valoración
+         $valoracion->puntuacion = $request->input('puntuacion');
+         $valoracion->comentario = $request->input('comentario');
+         $valoracion->save();
+ 
+         return redirect()->route('valoracion.index')->with('success', 'Valoración modificada con éxito');
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -138,17 +150,17 @@ class ValoracionController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function destroy($viaje_id, $usuario_dni)
-    {
-        $valoracion = Valoracion::where('viaje_id', $viaje_id)->where('usuario_dni', $usuario_dni)->first();
-
-        if (!$valoracion) {
-            return redirect()->route('valoracion.index')->with('error', 'Valoración no encontrada');
-        }
-
-        $valoracion->delete();
-        return redirect()->route('valoracion.index')->with('success', 'Valoración eliminada con éxito');
-    }
+     public function destroy($id)
+     {
+         $valoracion = Valoracion::find($id);
+ 
+         if (!$valoracion) {
+             return redirect()->route('valoracion.index')->with('error', 'Valoración no encontrada');
+         }
+ 
+         $valoracion->delete();
+         return redirect()->route('valoracion.index')->with('success', 'Valoración eliminada con éxito');
+     }
 
   
     public function filtrar(Request $request)
