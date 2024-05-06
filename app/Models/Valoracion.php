@@ -10,7 +10,6 @@ class Valoracion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'puntuacion',
         'comentario',
         'viaje_id',

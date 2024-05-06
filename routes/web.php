@@ -8,6 +8,7 @@ use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdministradorUsuariosController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ValoracionController;
 use App\Models\Conductor;
 
 /*
@@ -68,3 +69,10 @@ Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
 
 // Configuracion
 Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.show');
+
+
+// Rutas de Valoracion
+Route::resource('valoracion', ValoracionController::class);
+Route::get('/valoracion', [ValoracionController::class, 'index'])->name('valoracion.index');
+Route::delete('/valoracion/{viaje_id}/{usuario_dni}', [ValoracionController::class, 'destroy']);
+Route::get('/valoracion/edit/{viaje_id}/{usuario_dni}', [ValoracionController::class, 'edit']);
