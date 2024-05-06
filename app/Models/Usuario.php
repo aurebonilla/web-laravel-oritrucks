@@ -32,6 +32,7 @@ class Usuario extends Authenticatable
         'telefono',
         'fecha_nacimiento',
         'direccion',
+        'rol',
     ];
 
     /**

@@ -26,6 +26,7 @@ class UsuarioSeeder extends Seeder
             'telefono' => '123456789',
             'fecha_nacimiento' => '2000-01-01',
             'direccion' => 'Calle Ejemplo, 1',
+            'rol' => 'cliente',
         ]);
     }
 }

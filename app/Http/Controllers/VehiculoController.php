@@ -7,6 +7,11 @@ use App\Models\Vehiculo;
 
 class VehiculoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     //Mostramos la vista para completar los campos y añadir el vehiculo a la base de datos
     public function create()
     {

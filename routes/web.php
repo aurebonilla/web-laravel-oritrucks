@@ -35,12 +35,12 @@ Route::delete('/vehiculos/{matricula}', [VehiculoController::class, 'destroy'])-
 Route::get('/vehiculos/{matricula}/edit', [VehiculoController::class, 'edit'])->name('vehiculos.edit');
 Route::put('/vehiculos/{matricula}', [VehiculoController::class, 'update'])->name('vehiculos.update');
 
-
+/*
 Route::get('/signup', [SignUpController::class, 'create'])->name('usuario.create');
 Route::post('/signup', [SignUpController::class, 'store'])->name('usuario.store');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('usuario.login');
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('usuario.logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('usuario.logout');*/
 
 //Rutas de AdministradorUsuarios
 Route::resource('usuarios', AdministradorUsuariosController::class);
@@ -68,3 +68,20 @@ Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
 
 // Configuracion
 Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.show');
+
+Auth::routes();
+
+// Rutas de autenticación
+Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('auth.login');
+Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+
+// Rutas de registro
+Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('auth.register');
+Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('auth.register');
+
+
+// Rutas de restablecimiento de contraseña
+Route::get('password/reset', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');

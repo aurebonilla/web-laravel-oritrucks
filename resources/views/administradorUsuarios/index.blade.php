@@ -59,7 +59,10 @@
         <form action="{{ route('vehiculos.index') }}" method="GET">
             <button>Vehiculos</button>
         </form>
-        <button>Cerrar Sesión</button>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Cerrar Sesión</button>
+        </form>
     </div>
     <div id="Titulo_y_tabla">
         <h1>Listado de Usuarios</h1>

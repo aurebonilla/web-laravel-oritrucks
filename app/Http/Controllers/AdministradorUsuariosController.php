@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 use App\Models\Usuario;
 
+
 class AdministradorUsuariosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
            /**
      * Display a listing of the resource.
      *
@@ -75,7 +82,7 @@ class AdministradorUsuariosController extends Controller
             ]);
             $usuario = new Usuario();
             $usuario->nombre_usuario = $request->nombre_usuario;
-            $usuario->password = $request->password;
+            $usuario->password = Hash::make($request->password);
             $usuario->nombre = $request->nombre;
             $usuario->apellidos = $request->apellidos;
             $usuario->dni = $request->dni;
