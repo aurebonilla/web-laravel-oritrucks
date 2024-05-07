@@ -59,6 +59,9 @@
         <form action="{{ route('vehiculos.index') }}" method="GET">
             <button>Vehiculos</button>
         </form>
+        <form action="{{ route('valoracion.index') }}" method="GET">
+            <button>Valoraciones</button>
+        </form>
         <button>Cerrar Sesión</button>
     </div>
     <div id="Titulo_y_tabla">
