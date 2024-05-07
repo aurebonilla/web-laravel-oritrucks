@@ -93,3 +93,6 @@ Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->
 //Crear viaje Cliente
 
 //Mostrar viajes Cliente
+
+//Mostrar todos los vehiculos para Cliente
+Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos');
