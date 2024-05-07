@@ -193,10 +193,10 @@ class ValoracionController extends Controller
 
         switch ($orden) {
             case 'punt_asc':
-                $query->orderBy('puntuacion', 'desc');
+                $query->orderBy('puntuacion', 'asc');
                 break;
             case 'punt_desc':
-                $query->orderBy('puntuacion', 'asc');
+                $query->orderBy('puntuacion', 'desc');
                 break;
             case 'modificacion_asc':
                 $query->orderBy('updated_at', 'asc');

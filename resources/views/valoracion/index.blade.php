@@ -106,8 +106,8 @@
                 <form action="{{ route('valoracion.index') }}" method="GET">
                     <select name="tipo_filtro">
                         <option value="">Seleccionar filtro</option>
-                        <option value="viaje">Viaje</option>
-                        <option value="usuario">Usuario</option>
+                        <option value="viaje_id">Viaje</option>
+                        <option value="usuario_dni">Usuario</option>
                         <option value="mayor">Por encima de ...</option>
                         <option value="menor">Por bajo de ...</option>
                     </select>
