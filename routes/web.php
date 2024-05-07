@@ -8,6 +8,7 @@ use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdministradorUsuariosController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UsuarioClienteController;
 use App\Models\Conductor;
 
 /*
@@ -66,7 +67,7 @@ Route::get('/viaje', [ViajeController::class, 'index'])->name('viaje.index');
 Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, 'destroyByIdentificador']);
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit']);
 
-// Configuracion
+// Configuracion Administrador
 Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.show');
 
 Auth::routes();
@@ -85,3 +86,10 @@ Route::get('password/reset', [App\Http\Controllers\Auth\ForgotPasswordController
 Route::post('password/email', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
+
+//CLIENTE
+// Configuracion Cliente
+Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show');
+//Crear viaje Cliente
+
+//Mostrar viajes Cliente
