@@ -20,11 +20,8 @@
                     <button>CONFIGURACION</button>
                 </form>
                 <p class="Usuario_y_Paginas">PÁGINAS</p>
-                <form action="" method="GET" >
-                    <button>Crear Viaje</button>
-                </form>
-                <form action="" method="GET" >
-                    <button>Mostrar Mis Viajes</button>
+                <form action="{{ route('viaje.create') }}" method="GET">
+                    <button>Viajes</button>
                 </form>
                 <button>Cerrar Sesión</button>
             </div>
