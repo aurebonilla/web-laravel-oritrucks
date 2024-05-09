@@ -90,8 +90,9 @@ Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController
 // Configuracion Cliente
 Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show');
 //Crear viaje Cliente
-
+Route::get('/crearViajeCliente', [UsuarioClienteController::class, 'create'])->name('usuarioCliente.create')->middleware('admin');
+Route::get('/crearViajeCliente', [UsuarioClienteController::class, 'store'])->name('usuarioCliente.store')->middleware('admin');
 //Mostrar viajes Cliente
-
+Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'index'])->name('usuarioCliente.index')->middleware('admin');
 //Mostrar todos los vehiculos para Cliente
 Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos');

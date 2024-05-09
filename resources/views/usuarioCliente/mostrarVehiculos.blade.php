@@ -7,32 +7,26 @@
 </head>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 <div id="banner_vertical">
-        <div class="imagen">
-            <img src="{{ asset('img/favicon .jpg') }}" alt="foto">
-        </div>
-        <h2>ORITRUCKS COMPANY</h2>
-        <p class="Usuario_y_Paginas">USUARIO</p>
-        <form action="{{ route('usuario.show') }}" method="GET">
-            <button>CONFIGURACION</button>
-        </form>
-        <p class="Usuario_y_Paginas">PÁGINAS</p>
-        <form action="{{ route('administradorUsuarios.index') }}" method="GET">
-            <button>Usuarios</button>
-        </form>
-        <form action="{{ route('conductor.index') }}" method="GET">
-            <button>Conductores</button>
-        </form>
-        <form action="{{ route('viaje.index') }}" method="GET">
-            <button>Viajes</button>
-        </form>
-        <form action="{{ route('vehiculos.index') }}" method="GET">
-            <button>Vehiculos</button>
-        </form>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit">Cerrar Sesión</button>
-        </form>
-    </div>
+                <div class="imagen">
+                    <img src="{{ asset('img/favicon .jpg') }}" alt="foto">
+                </div>
+                <h1>ORITRUCKS COMPANY</h1>
+                <p class="Usuario_y_Paginas">USUARIO</p>
+                <form action="{{ route('usuarioCliente.show') }}" method="GET">
+                    <button>CONFIGURACION</button>
+                </form>
+                <p class="Usuario_y_Paginas">PÁGINAS</p>
+                <form action="">
+                <button>Crear Viaje</button>
+                </form>
+                <form action="" method="GET" >
+                    <button>Mostrar Mis Viajes</button>
+                </form>
+                <form action="{{ route('usuarioCliente.mostrarVehiculos') }}" method="GET" >
+                    <button>Vehiculos</button>
+                </form>
+                <button>Cerrar Sesión</button>
+            </div>
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

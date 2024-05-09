@@ -20,11 +20,14 @@
                     <button>CONFIGURACION</button>
                 </form>
                 <p class="Usuario_y_Paginas">PÁGINAS</p>
-                <form action="" method="GET" >
-                    <button>Crear Viaje</button>
+                <form action="">
+                <button>Crear Viaje</button>
                 </form>
-                <form action="" method="GET" >
+                <form action="{{ route('usuarioCliente.index') }}" method="GET" >
                     <button>Mostrar Mis Viajes</button>
+                </form>
+                <form action="{{ route('usuarioCliente.mostrarVehiculos') }}" method="GET" >
+                    <button>Vehiculos</button>
                 </form>
                 <button>Cerrar Sesión</button>
             </div>
