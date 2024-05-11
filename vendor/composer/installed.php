@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'e59f13bdcc7598c6f15135d8b6c105ad710e1130',
+        'reference' => 'b9ab064e0b17089d04b49e048ccfba9f9a29ff50',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -388,7 +388,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'e59f13bdcc7598c6f15135d8b6c105ad710e1130',
+            'reference' => 'b9ab064e0b17089d04b49e048ccfba9f9a29ff50',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -972,7 +972,7 @@
             'install_path' => __DIR__ . '/../spatie/backtrace',
             'aliases' => array(),
             'reference' => '8373b9d51638292e3bfd736a9c19a654111b4a23',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'spatie/enum' => array(
             'pretty_version' => '3.13.0',

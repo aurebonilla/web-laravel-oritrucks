@@ -17,10 +17,10 @@
                     <button>CONFIGURACION</button>
                 </form>
                 <p class="Usuario_y_Paginas">PÁGINAS</p>
-                <form action="">
+                <form action="{{ route('usuarioCliente.createViaje') }}">
                 <button>Crear Viaje</button>
                 </form>
-                <form action="" method="GET" >
+                <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET" >
                     <button>Mostrar Mis Viajes</button>
                 </form>
                 <form action="{{ route('usuarioCliente.mostrarVehiculos') }}" method="GET" >
@@ -82,14 +82,6 @@
                 <td>{{ $viaje->vehiculo_id }}</td> <!-- Muestra el ID del vehículo -->
                 <td>{{ $viaje->conductor_id }}</td> <!-- Muestra el ID del conductor -->
                 <td>
-                    <form action="/viaje/identificador/{{ $viaje->identificador }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-delete">Borrar</button>
-                    </form>
-                    <form action="/viaje/edit/{{ $viaje->identificador }}" method="GET" style="display: inline-block;">
-                        <button type="submit" class="btn btn-modificar">Modificar</button>
-                    </form>
                 </td>
             </tr>
             @empty

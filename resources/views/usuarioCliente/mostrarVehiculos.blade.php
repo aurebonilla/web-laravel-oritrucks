@@ -16,10 +16,10 @@
                     <button>CONFIGURACION</button>
                 </form>
                 <p class="Usuario_y_Paginas">PÁGINAS</p>
-                <form action="">
+                <form action="{{ route('usuarioCliente.createViaje') }}">
                 <button>Crear Viaje</button>
                 </form>
-                <form action="" method="GET" >
+                <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET" >
                     <button>Mostrar Mis Viajes</button>
                 </form>
                 <form action="{{ route('usuarioCliente.mostrarVehiculos') }}" method="GET" >

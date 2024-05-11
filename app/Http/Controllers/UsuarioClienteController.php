@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Vehiculo;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Models\Viaje;
+use App\Models\Conductor;
+use Illuminate\Support\Facades\Log;
 
 class UsuarioClienteController extends Controller
 {
@@ -49,7 +52,7 @@ class UsuarioClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function mostrarViajes(Request $request)
     {
 
         if ($request->has('tipo_filtro') && $request->has('valor_filtro')) {
@@ -70,15 +73,8 @@ class UsuarioClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createViaje()
     {
-        /** 
-        *$vehiculos = Vehiculo::all();
-        *$conductors = Conductor::all();
-        *$viajes = Viaje::all(); // Asegúrate de que esta línea está antes de compact
-
-        *return view('usuarioCliente.createViaje', compact('vehiculos', 'conductors'));
-        */
         return view('usuarioCliente.createViaje');
     }
 
@@ -88,7 +84,7 @@ class UsuarioClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeCliente(Request $request)
     {
         try{
             $request->validate([
@@ -154,7 +150,7 @@ class UsuarioClienteController extends Controller
             $viaje->precio = $precio;
             $viaje->save();
     
-            return redirect()->route('usuarioCliente.index');
+            return redirect()->route('usuarioCliente.mostrarViajes');
         }
         catch(\Illuminate\Database\QueryException $e){
             Log::error($e->getMessage());
@@ -173,22 +169,17 @@ class UsuarioClienteController extends Controller
     {
         //
     }
-    /*
-    public function destroyByIdentificador($identificador){
-        $viaje = Viaje::where('identificador', $identificador)->first();
-        $viaje->delete();
-        return redirect()->route('viaje.index');
-    }*/
+  
     public function destroyByIdentificador($identificador){
         $viaje = Viaje::where('identificador', $identificador)->first();
     
         if ($viaje) {
             $viaje->delete();
-            return redirect()->route('usuarioCliente.index');
+            return redirect()->route('usuarioCliente.mostrarViajes');
         } else {
             // Aquí puedes manejar el caso en que el viaje no existe.
             // Por ejemplo, podrías redirigir al usuario a la página de índice con un mensaje de error.
-            return redirect()->route('usuarioCliente.index')->withErrors(['error' => 'No se encontró el viaje con el identificador proporcionado.']);
+            return redirect()->route('usuarioCliente.mostrarViajes')->withErrors(['error' => 'No se encontró el viaje con el identificador proporcionado.']);
         }
     }
 
