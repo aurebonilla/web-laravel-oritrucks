@@ -1,0 +1,39 @@
+.container-valoracion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.card-valoracion {
+    width: 400px; 
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); 
+    background-color: #f0f9eb;
+}
+
+.card-header-valoracion {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #3366ff; 
+}
+
+.card-body-valoracion {
+    color: #333; 
+}
+
+.btn-valoracion {
+    background-color: #3366ff; 
+    border: none; 
+    color: white; 
+    padding: 15px 32px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer;
+}

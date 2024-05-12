@@ -48,4 +48,11 @@ class Viaje extends Model
         // Viaje tiene la clave ajena 'cliente_id'
         return $this->belongsTo(Usuario::class);
     }
+
+    public function valoraciones()
+    {
+        return $this->hasMany(Valoracion::class, 'viaje_id');
+    }
+
+
 }

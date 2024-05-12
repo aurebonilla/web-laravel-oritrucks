@@ -26,9 +26,8 @@ class ViajeController extends Controller
         if ($request->has('orden')) {
             return $this->ordenar($request);
         }
-
-
-        $viajes = Viaje::paginate(5);
+        
+        $viajes = Viaje::with('valoraciones')->paginate(5);
         return view('viaje.index', compact('viajes'));
     }
 
@@ -313,5 +312,12 @@ class ViajeController extends Controller
 
         return view('viaje.index', compact('viajes'));
     }
+
+    public function showValoracion($identificador)
+    {
+        $viaje = Viaje::with('valoraciones')->where('identificador', $identificador)->firstOrFail();
+        return view('viaje.valoracion', compact('viaje'));
+    }
+
 
 }

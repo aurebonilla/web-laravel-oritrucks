@@ -96,6 +96,9 @@
                     <form action="/viaje/edit/{{ $viaje->identificador }}" method="GET" style="display: inline-block;">
                         <button type="submit" class="btn btn-modificar">Modificar</button>
                     </form>
+                    <form action="/viaje/valoracion/{{ $viaje->identificador }}" method="GET" style="display: inline-block;">
+                        <button type="submit" class="btn btn-valoracion" {{ $viaje->valoraciones->isNotEmpty() ? '' : 'disabled' }}>Valoración</button>
+                    </form>
                 </td>
             </tr>
             @empty

@@ -79,3 +79,5 @@ Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit'
 
 Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update');
 Route::resource('valoracion', ValoracionController::class)->except(['update']);
+Route::get('/viaje/valoracion/{identificador}', [ViajeController::class, 'showValoracion']);
+
