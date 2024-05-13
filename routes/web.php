@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdministradorUsuariosController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\UsuarioClienteController;
+use App\Http\Controllers\ValoracionController;
 use App\Models\Conductor;
 
 /*
@@ -95,3 +96,14 @@ Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeC
 Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes');
 //Mostrar todos los vehiculos para Cliente
 Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos');
+
+
+// Rutas de Valoracion
+Route::resource('valoracion', ValoracionController::class);
+Route::get('/valoracion', [ValoracionController::class, 'index'])->name('valoracion.index');
+Route::delete('/valoracion/{valoracion}', [ValoracionController::class, 'destroy']);
+Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit']);
+
+Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update');
+Route::resource('valoracion', ValoracionController::class)->except(['update']);
+Route::get('/viaje/valoracion/{identificador}', [ViajeController::class, 'showValoracion']);

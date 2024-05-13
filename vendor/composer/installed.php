@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b9ab064e0b17089d04b49e048ccfba9f9a29ff50',
+        'reference' => '3352d9aa1760485a744f277710d2c9199f8e926a',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -388,7 +388,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b9ab064e0b17089d04b49e048ccfba9f9a29ff50',
+            'reference' => '3352d9aa1760485a744f277710d2c9199f8e926a',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -719,12 +719,12 @@
             ),
         ),
         'psr/http-factory' => array(
-            'pretty_version' => '1.0.2',
-            'version' => '1.0.2.0',
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/http-factory',
             'aliases' => array(),
-            'reference' => 'e616d01114759c4c489f93b099585439f795fe35',
+            'reference' => '2b4765fddfe3b508ac62f829e852b1501d3f6e8a',
             'dev_requirement' => false,
         ),
         'psr/http-factory-implementation' => array(
