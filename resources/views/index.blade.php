@@ -266,7 +266,9 @@ https://www.tooplate.com/view/2117-infinite-loop
             </div>
             
             <div class="col-sm-12 col-md-6">
-              <form action="" method="get">
+              <form action="https://formspree.io/f/xqkrjbgg" method="post">
+                <div id="sendmessage">Tu mensaje ha sido enviado</div>
+                <div id="errormessage"></div>
                 <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
                 <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
