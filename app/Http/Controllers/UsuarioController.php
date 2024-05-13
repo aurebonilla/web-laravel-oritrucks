@@ -10,7 +10,7 @@ class UsuarioController extends Controller
 {
     public function show()
     {
-        $usuario = Usuario::first();
+        $usuario = auth()->user();
 
         if (!$usuario) {
             return back()->with('error', 'No hay usuarios disponibles');
