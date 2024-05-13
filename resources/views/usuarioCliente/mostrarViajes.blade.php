@@ -6,6 +6,7 @@
     <title>Listado de Viajes</title>
     <link href="{{asset('css/index.css')}}" rel="stylesheet" type="text/css">
 </head>
+
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
 <div id="banner_vertical">
                 <div class="imagen">
