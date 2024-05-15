@@ -91,8 +91,15 @@ Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController
 // Configuracion Cliente
 Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show');
 //Crear viaje Cliente
-Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje');
-Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store');
+
+Route::resource('/crearViajeCliente/create', UsuarioClienteController::class);
+Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'crearViaje'])->name('usuarioCliente.createViaje');
+Route::post('/crearViajeCliente', [UsuarioClienteController::class, 'guardarViaje'])->name('usuaioCliente.guardarViaje');
+
+//Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje');
+//Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store');
+
+
 Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes');
 //Mostrar todos los vehiculos para Cliente
 Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos');

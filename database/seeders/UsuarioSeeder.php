@@ -28,5 +28,18 @@ class UsuarioSeeder extends Seeder
             'direccion' => 'Calle Ejemplo, 1',
             'rol' => 'cliente',
         ]);
+        DB::table('usuarios')->insert([
+            'nombre_usuario' => 'usuarioAdmin',
+            'password' => Hash::make('password'),
+            'nombre' => 'Nombre1',
+            'apellidos' => 'Apellidos1',
+            'dni' => '74444876V',
+            'email' => 'usuarioAdmin@example.com',
+            'telefono' => '652079895',
+            'fecha_nacimiento' => '2000-01-01',
+            'direccion' => 'Calle Ejemplo, 2',
+            'rol' => 'admin',
+        ]);
+
     }
 }

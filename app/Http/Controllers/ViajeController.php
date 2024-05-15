@@ -46,7 +46,7 @@ class ViajeController extends Controller
     {
         $vehiculos = Vehiculo::all();
         $conductors = Conductor::all();
-        $viajes = Viaje::all(); // Asegúrate de que esta línea está antes de compact
+        $viajes = Viaje::all();
 
         return view('viaje.create', compact('vehiculos', 'conductors'));
         //return view('viaje.create');
