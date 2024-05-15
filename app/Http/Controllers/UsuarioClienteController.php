@@ -73,9 +73,12 @@ class UsuarioClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createViaje()
+    public function crearViaje()
     {
-        return view('usuarioCliente.createViaje');
+        $vehiculos = Vehiculo::all();
+        $conductors = Conductor::all();
+        $viajes = Viaje::all();
+        return view('usuarioCliente.createViaje', compact('vehiculos', 'conductors'));
     }
 
     /**
@@ -84,7 +87,7 @@ class UsuarioClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeCliente(Request $request)
+    public function guardarViaje(Request $request)
     {
         try{
             $request->validate([
@@ -95,7 +98,7 @@ class UsuarioClienteController extends Controller
                 'destino' => 'required',
                 'km' => 'required',
                 'tarifa' => 'required|in:ESTANDAR,PREMIUM',
-                //tengo q poner vehiculo_id?? y conductor_id??
+
                 'vehiculo_id' => 'required|exists:vehiculos,matricula',
                 'conductor_id' => 'required|exists:conductors,dni',
             ],
