@@ -68,7 +68,7 @@ Route::delete('/viaje/identificador/{identificador}', [ViajeController::class, '
 Route::get('/viaje/edit/{identificador}', [ViajeController::class, 'edit'])->middleware('admin');
 
 // Configuracion Administrador
-Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.show');
+Route::get('/configuracion', [UsuarioController::class, 'show'])->name('usuario.show')->middleware('admin');
 
 Auth::routes();
 
@@ -89,13 +89,13 @@ Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController
 
 //CLIENTE
 // Configuracion Cliente
-Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show');
+Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show')->middleware('cliente');
 //Crear viaje Cliente
-Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje');
-Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store');
-Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes');
+Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje')->middleware('cliente');
+Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store')->middleware('cliente');
+Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes')->middleware('cliente');
 //Mostrar todos los vehiculos para Cliente
-Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos');
+Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos')->middleware('cliente');
 
 
 // Rutas de Valoracion

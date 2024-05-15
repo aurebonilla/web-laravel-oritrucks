@@ -39,7 +39,7 @@ class UsuarioSeeder extends Seeder
             'telefono' => '234567890',
             'fecha_nacimiento' => '2001-02-02',
             'direccion' => 'Calle Ejemplo, 2',
-            'rol' => 'cliente',
+            'rol' => 'admin',
         ]);
     }
 }

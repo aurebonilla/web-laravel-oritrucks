@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
+class ComposerStaticInit390fad4f41e9601abdfa5d085121908a
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -566,8 +566,10 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckAdminRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAdminRole.php',
+        'App\\Http\\Middleware\\CheckClienteRole' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckClienteRole.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
+        'App\\Http\\Middleware\\RedirectAfterLogin' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectAfterLogin.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
@@ -3182,6 +3184,7 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Mockery\\CountValidator\\AtLeast' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtLeast.php',
         'Mockery\\CountValidator\\AtMost' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtMost.php',
         'Mockery\\CountValidator\\CountValidatorAbstract' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php',
+        'Mockery\\CountValidator\\CountValidatorInterface' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorInterface.php',
         'Mockery\\CountValidator\\Exact' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exact.php',
         'Mockery\\CountValidator\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exception.php',
         'Mockery\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception.php',
@@ -3860,6 +3863,7 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'PharIo\\Manifest\\ManifestLoader' => __DIR__ . '/..' . '/phar-io/manifest/src/ManifestLoader.php',
         'PharIo\\Manifest\\ManifestLoaderException' => __DIR__ . '/..' . '/phar-io/manifest/src/exceptions/ManifestLoaderException.php',
         'PharIo\\Manifest\\ManifestSerializer' => __DIR__ . '/..' . '/phar-io/manifest/src/ManifestSerializer.php',
+        'PharIo\\Manifest\\NoEmailAddressException' => __DIR__ . '/..' . '/phar-io/manifest/src/exceptions/NoEmailAddressException.php',
         'PharIo\\Manifest\\PhpElement' => __DIR__ . '/..' . '/phar-io/manifest/src/xml/PhpElement.php',
         'PharIo\\Manifest\\PhpExtensionRequirement' => __DIR__ . '/..' . '/phar-io/manifest/src/values/PhpExtensionRequirement.php',
         'PharIo\\Manifest\\PhpVersionRequirement' => __DIR__ . '/..' . '/phar-io/manifest/src/values/PhpVersionRequirement.php',
@@ -4746,6 +4750,11 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Spatie\\Backtrace\\Arguments\\Reducers\\StringableArgumentReducer' => __DIR__ . '/..' . '/spatie/backtrace/src/Arguments/Reducers/StringableArgumentReducer.php',
         'Spatie\\Backtrace\\Arguments\\Reducers\\SymphonyRequestArgumentReducer' => __DIR__ . '/..' . '/spatie/backtrace/src/Arguments/Reducers/SymphonyRequestArgumentReducer.php',
         'Spatie\\Backtrace\\Backtrace' => __DIR__ . '/..' . '/spatie/backtrace/src/Backtrace.php',
+        'Spatie\\Backtrace\\CodeSnippets\\CodeSnippet' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/CodeSnippet.php',
+        'Spatie\\Backtrace\\CodeSnippets\\FileSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/FileSnippetProvider.php',
+        'Spatie\\Backtrace\\CodeSnippets\\LaravelSerializableClosureSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/LaravelSerializableClosureSnippetProvider.php',
+        'Spatie\\Backtrace\\CodeSnippets\\NullSnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/NullSnippetProvider.php',
+        'Spatie\\Backtrace\\CodeSnippets\\SnippetProvider' => __DIR__ . '/..' . '/spatie/backtrace/src/CodeSnippets/SnippetProvider.php',
         'Spatie\\Backtrace\\Frame' => __DIR__ . '/..' . '/spatie/backtrace/src/Frame.php',
         'Spatie\\Enum\\Enum' => __DIR__ . '/..' . '/spatie/enum/src/Enum.php',
         'Spatie\\Enum\\EnumDefinition' => __DIR__ . '/..' . '/spatie/enum/src/EnumDefinition.php',
@@ -5416,6 +5425,7 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Symfony\\Component\\Mailer\\Exception\\RuntimeException' => __DIR__ . '/..' . '/symfony/mailer/Exception/RuntimeException.php',
         'Symfony\\Component\\Mailer\\Exception\\TransportException' => __DIR__ . '/..' . '/symfony/mailer/Exception/TransportException.php',
         'Symfony\\Component\\Mailer\\Exception\\TransportExceptionInterface' => __DIR__ . '/..' . '/symfony/mailer/Exception/TransportExceptionInterface.php',
+        'Symfony\\Component\\Mailer\\Exception\\UnexpectedResponseException' => __DIR__ . '/..' . '/symfony/mailer/Exception/UnexpectedResponseException.php',
         'Symfony\\Component\\Mailer\\Exception\\UnsupportedSchemeException' => __DIR__ . '/..' . '/symfony/mailer/Exception/UnsupportedSchemeException.php',
         'Symfony\\Component\\Mailer\\Header\\MetadataHeader' => __DIR__ . '/..' . '/symfony/mailer/Header/MetadataHeader.php',
         'Symfony\\Component\\Mailer\\Header\\TagHeader' => __DIR__ . '/..' . '/symfony/mailer/Header/TagHeader.php',
@@ -5797,6 +5807,7 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Symfony\\Component\\VarDumper\\Cloner\\Cursor' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/Cursor.php',
         'Symfony\\Component\\VarDumper\\Cloner\\Data' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/Data.php',
         'Symfony\\Component\\VarDumper\\Cloner\\DumperInterface' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/DumperInterface.php',
+        'Symfony\\Component\\VarDumper\\Cloner\\Internal\\NoDefault' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/Internal/NoDefault.php',
         'Symfony\\Component\\VarDumper\\Cloner\\Stub' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/Stub.php',
         'Symfony\\Component\\VarDumper\\Cloner\\VarCloner' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/VarCloner.php',
         'Symfony\\Component\\VarDumper\\Command\\Descriptor\\CliDescriptor' => __DIR__ . '/..' . '/symfony/var-dumper/Command/Descriptor/CliDescriptor.php',
@@ -5835,7 +5846,9 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
         'Symfony\\Contracts\\Service\\Attribute\\Required' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/Required.php',
         'Symfony\\Contracts\\Service\\Attribute\\SubscribedService' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/SubscribedService.php',
         'Symfony\\Contracts\\Service\\ResetInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ResetInterface.php',
+        'Symfony\\Contracts\\Service\\ServiceCollectionInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceCollectionInterface.php',
         'Symfony\\Contracts\\Service\\ServiceLocatorTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceLocatorTrait.php',
+        'Symfony\\Contracts\\Service\\ServiceMethodsSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceMethodsSubscriberTrait.php',
         'Symfony\\Contracts\\Service\\ServiceProviderInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceProviderInterface.php',
         'Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
         'Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
@@ -5943,9 +5956,9 @@ class ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit0f523c80292e5e5ef2eb4d77a6b1beaf::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit390fad4f41e9601abdfa5d085121908a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit390fad4f41e9601abdfa5d085121908a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit390fad4f41e9601abdfa5d085121908a::$classMap;
 
         }, null, ClassLoader::class);
     }
