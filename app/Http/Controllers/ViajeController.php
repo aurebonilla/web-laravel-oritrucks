@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Viaje;
 use App\Models\Vehiculo;
 use App\Models\Conductor;
+use Illuminate\Support\Facades\Auth;
 
 class ViajeController extends Controller
 {
@@ -72,6 +73,7 @@ class ViajeController extends Controller
                 //tengo q poner vehiculo_id?? y conductor_id??
                 'vehiculo_id' => 'required|exists:vehiculos,matricula',
                 'conductor_id' => 'required|exists:conductors,dni',
+                
             ],
             [
                 //'identificador.required' => 'El identificador es obligatorio',
@@ -122,6 +124,7 @@ class ViajeController extends Controller
             $viaje->vehiculo_id = $request->vehiculo_id;
             $viaje->conductor_id = $request->conductor_id;
             $viaje->precio = $precio;
+            $viaje->cliente_dni = Auth::user()->dni; // Asegúrate de que el usuario tenga un campo dni
             $viaje->save();
     
             return redirect()->route('viaje.index');

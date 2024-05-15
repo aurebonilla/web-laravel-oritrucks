@@ -76,6 +76,7 @@
                 <th>Precio</th>
                 <th>Vehículo ID</th>
                 <th>Conductor ID</th>
+                <th>Cliente ID</th>
                 <th>Acciones</th>
             </tr>
             @forelse ($viajes as $viaje)
@@ -90,6 +91,7 @@
                 <td>{{ $viaje->precio }}</td>
                 <td>{{ $viaje->vehiculo_id }}</td> <!-- Muestra el ID del vehículo -->
                 <td>{{ $viaje->conductor_id }}</td> <!-- Muestra el ID del conductor -->
+                <td>{{ $viaje->cliente->dni }}</td> <!-- Muestra el DNI del cliente -->
                 <td>
                     <form action="/viaje/identificador/{{ $viaje->identificador }}" method="POST">
                         @csrf

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('destino');
             $table->integer('km');
             $table->float('precio')->nullable();
-           $table->enum('tarifa', TarifaType::toArray())->default(TarifaType::estandar()); // No sé como poner aún tipo de tarifa
+            $table->enum('tarifa', TarifaType::toArray())->default(TarifaType::estandar()); // No sé como poner aún tipo de tarifa
+            $table->string('cliente_dni')->nullable();
         });
     }
 
