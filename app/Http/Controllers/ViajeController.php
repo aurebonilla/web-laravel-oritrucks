@@ -33,7 +33,7 @@ class ViajeController extends Controller
         }
 
 
-        $viajes = Viaje::paginate(5);
+        $viajes = Viaje::with('valoraciones')->paginate(5);
         return view('viaje.index', compact('viajes'));
     }
 
@@ -46,7 +46,7 @@ class ViajeController extends Controller
     {
         $vehiculos = Vehiculo::all();
         $conductors = Conductor::all();
-        $viajes = Viaje::all(); // Asegúrate de que esta línea está antes de compact
+        $viajes = Viaje::all();
 
         return view('viaje.create', compact('vehiculos', 'conductors'));
         //return view('viaje.create');
@@ -317,6 +317,12 @@ class ViajeController extends Controller
         $viajes = $query->paginate(5)->appends(['orden' => $orden]);
 
         return view('viaje.index', compact('viajes'));
+    }
+
+    public function showValoracion($identificador)
+    {
+        $viaje = Viaje::with('valoraciones')->where('identificador', $identificador)->firstOrFail();
+        return view('viaje.valoracion', compact('viaje'));
     }
 
 }

@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.5",
+        "spatie/backtrace": "^1.6",
         "spatie/enum": "^3.13"
     },
     "require-dev": {

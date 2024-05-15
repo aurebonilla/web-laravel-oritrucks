@@ -1,12 +1,12 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="{{ asset('css/newregister.css') }}" rel="stylesheet">
-    </head>
-    <body>
+@extends('layouts.app')
+
+@section('content')
         <div class="container">
             <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/furgoneta3.jpeg') }}" alt="Descripción de la imagen" class="img-fluid">
+                </div>
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header" >{{ __('Register') }}</div>
@@ -162,5 +162,4 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+@endsection

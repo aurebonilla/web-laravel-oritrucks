@@ -20,10 +20,19 @@
                     <button>CONFIGURACION</button>
                 </form>
                 <p class="Usuario_y_Paginas">PÁGINAS</p>
-                <form action="{{ route('viaje.create') }}" method="GET">
-                    <button>Viajes</button>
+                <form action="{{ route('usuarioCliente.createViaje') }}">
+                <button>Crear Viaje</button>
                 </form>
-                <button>Cerrar Sesión</button>
+                <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET" >
+                    <button>Mostrar Mis Viajes</button>
+                </form>
+                <form action="{{ route('usuarioCliente.mostrarVehiculos') }}" method="GET" >
+                    <button>Vehiculos</button>
+                </form>
+                <form action="{{ route('logout') }}" method="POST">
+                 @csrf
+                <button type="submit">Cerrar Sesión</button>
+        </form>
             </div>
             <div id="Titulo_y_tabla" style="text-align: center">
                 <h1>Información del Usuario</h1>

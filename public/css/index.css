@@ -161,6 +161,21 @@ h2 {
 .btn-delete:hover {
     background-color: #f81c1c;
 }
+
+
+.btn-valoracion {
+    background-color: #25f864;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-valoracion:hover {
+    background-color: #15be1d;
+}
+
 .btn-crear,
 .btn-filtrar,
 .btn-ordenar,
