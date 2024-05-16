@@ -91,8 +91,9 @@ Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController
 // Configuracion Cliente
 Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show')->middleware('cliente');
 //Crear viaje Cliente
-Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje')->middleware('cliente');
-Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store')->middleware('cliente');
+Route::resource('/crearViajeCliente/create', UsuarioClienteController::class);
+Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'crearViaje'])->name('usuarioCliente.createViaje');
+Route::post('/crearViajeCliente', [UsuarioClienteController::class, 'guardarViaje'])->name('usuaioCliente.guardarViaje');
 Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes')->middleware('cliente');
 Route::delete('/mostrarViajesCliente/identificador/{identificador}', [UsuarioClienteController::class, 'destroyByIdentificador'])->middleware('cliente');
 //Mostrar todos los vehiculos para Cliente
