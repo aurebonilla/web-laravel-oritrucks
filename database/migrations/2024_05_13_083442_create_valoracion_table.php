@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('comentario');
             $table->float('puntuacion');
             $table->string('viaje_id');  
-            $table->foreign('viaje_id')->references('identificador')->on('viajes');
+            $table->foreign('viaje_id')->references('identificador')->on('viajes')->onDelete('cascade');
             $table->string('usuario_dni');
             $table->foreign('usuario_dni')->references('dni')->on('usuarios');
         });

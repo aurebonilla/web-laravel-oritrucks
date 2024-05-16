@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Valoracion;
+use App\Models\Viaje;
 use Illuminate\Support\Facades\Log;
 class ValoracionController extends Controller
 {
@@ -217,4 +218,38 @@ class ValoracionController extends Controller
         return view('valoracion.index', compact('valoraciones'));
     }
 
+    public function crearValoracionCliente($identificador)
+    {
+        $viaje = Viaje::find($identificador);
+
+        return view('usuarioCliente.CrearValoracionCliente', compact('viaje'));
+    }
+
+    public function storeValoracionCliente(Request $request)
+    {
+        $request->validate([
+            'puntuacion' => 'required',
+            'comentario' => 'required',
+        ],
+        [
+            'comentario.required' => 'El comentario es obligatorio',
+            'puntuacion.required' => 'La puntuación es obligatoria',
+        ]);
+        $valoracion = new Valoracion;
+        $valoracion->viaje_id = $request->identificador;
+        $valoracion->usuario_dni = auth()->user()->dni;
+        $valoracion->puntuacion = $request->puntuacion;
+        $valoracion->comentario = $request->comentario;
+        $valoracion->save();
+
+        return redirect('/mostrarViajesCliente')->with('success', 'Valoración enviada con éxito');
+    }
+
+    public function verValoracionCliente($identificador)
+    {
+        $viaje = Viaje::find($identificador);
+        $valoracion = $viaje->valoraciones->first();
+
+        return view('usuarioCliente.verValoracionCliente', compact('viaje', 'valoracion'));
+    }
 }

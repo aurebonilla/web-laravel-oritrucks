@@ -87,6 +87,24 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-delete">Borrar</button>
                     </form>
+                    @php
+                        $fechaActual = \Carbon\Carbon::now();
+                        $fechaViaje = \Carbon\Carbon::parse($viaje->fecha);
+                    @endphp
+
+                    @if($fechaActual->greaterThanOrEqualTo($fechaViaje))
+                        @if($viaje->valoraciones->isNotEmpty())
+                            <form action="/viaje/valoracionShow/{{ $viaje->identificador }}" method="GET" style="display: inline-block;">
+                                <button type="submit" class="btn btn-valoracion">Ver Valoración</button>
+                            </form>
+                        @else
+                            <form action="/viaje/valoracionPost/{{ $viaje->identificador }}" method="GET" style="display: inline-block;">
+                                <button type="submit" class="btn btn-valoracion">Añadir Valoración</button>
+                            </form>
+                        @endif
+                    @else
+                        <button class="btn btn-valoracion" disabled>Añadir Valoración</button>
+                    @endif
                 </td>
                     
             </tr>

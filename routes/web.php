@@ -109,3 +109,8 @@ Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit'
 Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update');
 Route::resource('valoracion', ValoracionController::class)->except(['update']);
 Route::get('/viaje/valoracion/{identificador}', [ViajeController::class, 'showValoracion']);
+
+// Valoracion del Cliente
+Route::get('/viaje/valoracionPost/{identificador}', [ValoracionController::class, 'crearValoracionCliente']);
+Route::post('/viaje/valoracion/store', [ValoracionController::class, 'storeValoracionCliente']);
+Route::get('/viaje/valoracionShow/{identificador}', [ValoracionController::class, 'verValoracionCliente']);
