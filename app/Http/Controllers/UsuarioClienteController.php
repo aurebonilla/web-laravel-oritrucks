@@ -52,8 +52,9 @@ class UsuarioClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function mostrarViajes(Request $request)
+    public function mostrarViajes(Request $request) 
     {
+        $usuario = auth()->user();
 
         if ($request->has('tipo_filtro') && $request->has('valor_filtro')) {
             return $this->filtrar($request);
@@ -63,10 +64,11 @@ class UsuarioClienteController extends Controller
             return $this->ordenar($request);
         }
 
-
-        $viajes = Viaje::paginate(5);
+        // Solo obtén los viajes del usuario autenticado
+        $viajes = Viaje::where('cliente_dni', $usuario->dni)->paginate(5);
         return view('usuarioCliente.mostrarViajes', compact('viajes'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -188,10 +190,11 @@ class UsuarioClienteController extends Controller
 
     public function filtrar(Request $request)
     {
+        $usuario = auth()->user();
         $tipo_filtro = $request->get('tipo_filtro');
         $valor_filtro = $request->get('valor_filtro');
 
-        $query = Viaje::query();
+        $query = Viaje::where('cliente_dni', $usuario->dni);
 
         if ($tipo_filtro) {
             if ($tipo_filtro == 'mayor') {
@@ -210,9 +213,10 @@ class UsuarioClienteController extends Controller
 
     public function ordenar(Request $request)
     {
+        $usuario = auth()->user();
         $orden = $request->get('orden');
 
-        $query = Viaje::query();
+        $query = Viaje::where('cliente_dni', $usuario->dni);
 
         switch ($orden) {
             case 'fecha_asc':

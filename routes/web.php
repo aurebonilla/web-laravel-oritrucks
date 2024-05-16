@@ -94,8 +94,10 @@ Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->
 Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'createViaje'])->name('usuarioCliente.createViaje')->middleware('cliente');
 Route::get('/crearViajeCliente/store', [UsuarioClienteController::class, 'storeCliente'])->name('usuarioCliente.store')->middleware('cliente');
 Route::get('/mostrarViajesCliente', [UsuarioClienteController::class, 'mostrarViajes'])->name('usuarioCliente.mostrarViajes')->middleware('cliente');
+Route::delete('/mostrarViajesCliente/identificador/{identificador}', [UsuarioClienteController::class, 'destroyByIdentificador'])->middleware('cliente');
 //Mostrar todos los vehiculos para Cliente
 Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehiculos'])->name('usuarioCliente.mostrarVehiculos')->middleware('cliente');
+
 
 
 // Rutas de Valoracion

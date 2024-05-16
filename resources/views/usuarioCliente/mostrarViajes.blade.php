@@ -69,8 +69,6 @@
                 <th>Km</th>
                 <th>Tarifa</th>
                 <th>Precio</th>
-                <th>Vehículo ID</th>
-                <th>Conductor ID</th>
                 <th>Acciones</th>
             </tr>
             @forelse ($viajes as $viaje)
@@ -83,10 +81,14 @@
                 <td>{{ $viaje->km }}</td>
                 <td>{{ $viaje->tarifa }}</td>
                 <td>{{ $viaje->precio }}</td>
-                <td>{{ $viaje->vehiculo_id }}</td> <!-- Muestra el ID del vehículo -->
-                <td>{{ $viaje->conductor_id }}</td> <!-- Muestra el ID del conductor -->
                 <td>
+                    <form action="/mostrarViajesCliente/identificador/{{ $viaje->identificador }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-delete">Borrar</button>
+                    </form>
                 </td>
+                    
             </tr>
             @empty
             <tr>
@@ -98,7 +100,7 @@
             <div style="display: inline-block; vertical-align: top;">
                 <button class="btn btn-filtrar" onclick="mostrarFiltros()">Filtrar</button>
                 <div class="filtros-dropdown" id="filtros" style="display: none;">
-                    <form action="{{ route('viaje.index') }}" method="GET">
+                    <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET">
                         <select name="tipo_filtro">
                             <option value="">Seleccionar filtro</option>
                             <option value="identificador">Identificador</option>
@@ -118,7 +120,7 @@
             <div style="display: inline-block; vertical-align: top;">
                 <button class="btn btn-ordenar" onclick="mostrarOrden()">Ordenar</button>
                 <div class="orden-dropdown" id="orden" style="display: none;">
-                    <form action="{{ route('viaje.index') }}" method="GET">
+                    <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET">
                         <select name="orden">
                             <option value="">Seleccionar orden</option>
                             <option value="fecha_asc">Fecha (Menor a Mayor)</option>
@@ -132,7 +134,7 @@
                     </form>
                 </div>
                 </div>
-                <form action="{{ route('viaje.index') }}" method="GET" style="display: inline-block;">
+                <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET" style="display: inline-block;">
                     <button type="submit" class="btn btn-refrescar">Refrescar</button>
                 </form>
         </div>
