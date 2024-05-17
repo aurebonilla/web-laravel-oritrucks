@@ -101,16 +101,16 @@ Route::get('/vehiculosCliente', [UsuarioClienteController::class, 'mostrarVehicu
 
 
 // Rutas de Valoracion
-Route::resource('valoracion', ValoracionController::class);
-Route::get('/valoracion', [ValoracionController::class, 'index'])->name('valoracion.index');
-Route::delete('/valoracion/{valoracion}', [ValoracionController::class, 'destroy']);
-Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit']);
+Route::resource('valoracion', ValoracionController::class)->middleware('admin');
+Route::get('/valoracion', [ValoracionController::class, 'index'])->name('valoracion.index')->middleware('admin');
+Route::delete('/valoracion/{valoracion}', [ValoracionController::class, 'destroy'])->middleware('admin');
+Route::get('/valoracion/edit/{valoracion}', [ValoracionController::class, 'edit'])->middleware('admin');
 
-Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update');
-Route::resource('valoracion', ValoracionController::class)->except(['update']);
-Route::get('/viaje/valoracion/{identificador}', [ViajeController::class, 'showValoracion']);
+Route::put('/valoracion/{valoracion}', [ValoracionController::class, 'update'])->name('valoracion.update')->middleware('admin');
+Route::resource('valoracion', ValoracionController::class)->except(['update'])->middleware('admin');
+Route::get('/viaje/valoracion/{identificador}', [ViajeController::class, 'showValoracion'])->middleware('admin');
 
 // Valoracion del Cliente
-Route::get('/viaje/valoracionPost/{identificador}', [ValoracionController::class, 'crearValoracionCliente']);
-Route::post('/viaje/valoracion/store', [ValoracionController::class, 'storeValoracionCliente']);
-Route::get('/viaje/valoracionShow/{identificador}', [ValoracionController::class, 'verValoracionCliente']);
+Route::get('/viaje/valoracionPost/{identificador}', [ValoracionController::class, 'crearValoracionCliente'])->middleware('cliente');
+Route::post('/viaje/valoracion/store', [ValoracionController::class, 'storeValoracionCliente'])->middleware('cliente');
+Route::get('/viaje/valoracionShow/{identificador}', [ValoracionController::class, 'verValoracionCliente'])->middleware('cliente');
