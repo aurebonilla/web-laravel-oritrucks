@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>OriTrucks</title>
+    <title>Oritrucks</title>
     <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
     <link rel="stylesheet" href="slick/slick.css">
     <link rel="stylesheet" href="slick/slick-theme.css">
@@ -80,7 +80,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                     <div class="tm-intro-text-container">
                         <h2 class="tm-text-primary mb-4 tm-section-title">¿Qué hacemos?</h2>
                         <p class="mb-4 tm-intro-text">
-                          Bienvenido a OriTrucks: donde el transporte de mercancías se convierte en una experiencia familiar. Con un enfoque cálido y comprometido, nos dedicamos a cuidar tus envíos como si fueran nuestros propios productos. Nuestro equipo experimentado y nuestra flota moderna garantizan entregas seguras y puntuales. Únete a nuestra familia y descubre un servicio de transporte personalizado que impulsa tu negocio hacia el éxito.</p>
+                          Bienvenido a Oritrucks: donde el transporte de mercancías se convierte en una experiencia familiar. Con un enfoque cálido y comprometido, nos dedicamos a cuidar tus envíos como si fueran nuestros propios productos. Nuestro equipo experimentado y nuestra flota moderna garantizan entregas seguras y puntuales. Únete a nuestra familia y descubre un servicio de transporte personalizado que impulsa tu negocio hacia el éxito.</p>
                     </div>
                 </div>
 
@@ -94,7 +94,7 @@ https://www.tooplate.com/view/2117-infinite-loop
                     <div class="tm-intro-text-container">
                         <h2 class="tm-text-primary mb-4">Líderes del Mercado</h2>
                         <p class="mb-4 tm-intro-text">
-                          En OriTrucks, somos líderes en transporte de mercancías. Confía en nosotros para tus envíos.</p>
+                          En Oritrucks, somos líderes en transporte de mercancías. Confía en nosotros para tus envíos.</p>
                     </div>
                 </div>
                 
@@ -310,7 +310,7 @@ https://www.tooplate.com/view/2117-infinite-loop
 
       	<footer class="text-center small tm-footer">
           <p class="mb-0">
-          Copyright &copy; 2020 OriTrucks by G01-01
+          Copyright &copy; 2020 Oritrucks by G01-01
         </footer>
 
     </section>
