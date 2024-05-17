@@ -44,8 +44,6 @@
 
 <div id="Titulo_y_tabla" style="text-align: center; margin-top: 20px;">
             <h1>Listado de Vehiculos</h1>
-    <a href="{{ route('vehiculo.create') }}"><button type="submit" class="btn btn-crear">Crear Vehículo</button></a>
-
     <!-- Filtros para mostrar los vehiculos -->
     <form method="GET" action="{{ route('vehiculos.index') }}">
         <input type="text" name="matricula" placeholder="Buscar por matrícula" value="{{ request('matricula') }}">
