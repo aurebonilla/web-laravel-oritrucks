@@ -9,6 +9,7 @@ use App\Models\Viaje;
 use App\Models\Vehiculo;
 use App\Models\Conductor;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Usuario;
 
 class ViajeController extends Controller
 {
@@ -48,9 +49,9 @@ class ViajeController extends Controller
         $vehiculos = Vehiculo::all();
         $conductors = Conductor::all();
         $viajes = Viaje::all();
+        $clientes = Usuario::where('rol', 'cliente')->pluck('dni', 'dni');
 
-        return view('viaje.create', compact('vehiculos', 'conductors'));
-        //return view('viaje.create');
+        return view('viaje.create', compact('vehiculos', 'conductors', 'clientes'));        //return view('viaje.create');
     }
 
     /**

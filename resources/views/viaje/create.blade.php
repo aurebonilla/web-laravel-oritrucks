@@ -61,6 +61,15 @@
             @endforeach
         </select>
 
+        <div class="form-group">
+            <label for="cliente_dni">Cliente</label>
+            <select class="form-control" id="cliente_dni" name="cliente_dni">
+                @foreach ($clientes as $id => $dni)
+                    <option value="{{ $id }}">{{ $dni }}</option>
+                @endforeach
+            </select>
+        </div>
+        
         <input type="submit" value="Crear Viaje">
     </form>
 </div>
