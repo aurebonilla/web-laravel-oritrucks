@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Viaje;
 use App\Models\Conductor;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioClienteController extends Controller
 {
@@ -153,6 +154,7 @@ class UsuarioClienteController extends Controller
             $viaje->vehiculo_id = $request->vehiculo_id;
             $viaje->conductor_id = $request->conductor_id;
             $viaje->precio = $precio;
+            $viaje->cliente_dni = Auth::user()->dni; // Asegúrate de que el usuario tenga un campo dni
             $viaje->save();
     
             return redirect()->route('usuarioCliente.mostrarViajes');
