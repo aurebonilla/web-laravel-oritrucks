@@ -57,7 +57,7 @@ https://www.tooplate.com/view/2117-infinite-loop
       
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
-            <h2 class="tm-hero-title">OriTrucks</h2>
+            <h2 class="tm-hero-title">Oritrucks</h2>
             <p class="tm-hero-subtitle">
               Más que una empresa, una familia
             </p>
