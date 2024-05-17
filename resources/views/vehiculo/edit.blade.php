@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+    <title>Editar Vehículo</title>
 </head>
 <body>
 <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">

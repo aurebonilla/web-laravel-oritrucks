@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+    <title>Editar Usuario</title>
     </head>
     <body style="background-image: url('/img/fondo1.JPG'); background-size: cover; background-position: center;">
         @if (session('error'))

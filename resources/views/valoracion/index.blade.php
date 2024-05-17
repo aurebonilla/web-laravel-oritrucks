@@ -31,7 +31,10 @@
         <form action="{{ route('valoracion.index') }}" method="GET">
             <button>Valoraciones</button>
         </form>
-        <button>Cerrar Sesión</button>
+        <form action="{{ route('logout') }}" method="POST">
+                 @csrf
+                <button type="submit">Cerrar Sesión</button>
+        </form>
 </div>
 
 @if (session('error'))
