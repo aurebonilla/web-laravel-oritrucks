@@ -70,7 +70,65 @@ class UsuarioClienteController extends Controller
         return view('usuarioCliente.mostrarViajes', compact('viajes'));
     }
 
+    public function edit($dni)
+    {
+        $usuario = Usuario::where('dni', $dni)->first();
 
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuario no encontrado');
+        }
+
+        return view('usuarioCliente.edit', ['usuario' => $usuario]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $dni
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $dni)
+    {
+        $usuario = Usuario::where('dni', $dni)->first();
+
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuario no encontrado');
+        }
+
+        try{
+            $request->validate([
+                'nombre_usuario' => 'required',
+                'password' => 'required',
+                'nombre' => 'required',
+                'apellidos' => 'required',
+                'email' => 'required|email',
+                'telefono' => 'required|digits:9',
+                'fecha_nacimiento' => 'required|date|before:-18 years',
+                'direccion' => 'required',
+            ],
+            [
+                'nombre_usuario.required' => 'El usuario es obligatorio',
+                'password.required' => 'La contraseña es obligatorio',
+                'nombre.required' => 'El nombre es obligatorio',
+                'apellidos.required' => 'Los apellidos son obligatorios',
+                'email.required' => 'El email es obligatorio',
+                'email.email' => 'El email debe ser válido',
+                'telefono.required' => 'El teléfono es obligatorio',
+                'telefono.digits' => 'El teléfono debe tener 9 dígitos',
+                'fecha_nacimiento.required' => 'La fecha de nacimiento es obligatoria',
+                'fecha_nacimiento.before' => 'Debes ser mayor de edad para registrarte',
+                'direccion.required' => 'La direccion es obligatoria',
+            ]);
+        }
+        catch(\Illuminate\Database\QueryException $e){
+            return redirect()->back()->withErrors(['error' => 'Error al modificar el usuario. Quizás ya existe un usuario con ese nombre, DNI ,email o telefono.']);
+        }
+
+        $usuario->update($request->all());
+
+        return redirect()->route('usuarioCliente.show')->with('success', 'Usuario modificado con éxito');
+    }
     /**
      * Show the form for creating a new resource.
      *

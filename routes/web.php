@@ -90,6 +90,8 @@ Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController
 //CLIENTE
 // Configuracion Cliente
 Route::get('/configuracionCliente', [UsuarioClienteController::class, 'show'])->name('usuarioCliente.show')->middleware('cliente');
+Route::get('/configuracionCliente/edit/{dni}', [UsuarioClienteController::class, 'edit'])->name('usuarioCliente.edit')->middleware('cliente');
+Route::put('/configuracionCliente/{dni}', [UsuarioClienteController::class, 'update'])->name('usuarioCliente.update')->middleware('cliente');
 //Crear viaje Cliente
 Route::resource('/crearViajeCliente/create', UsuarioClienteController::class);
 Route::get('/crearViajeCliente/create', [UsuarioClienteController::class, 'crearViaje'])->name('usuarioCliente.createViaje');
