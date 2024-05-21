@@ -102,8 +102,6 @@
                                 <button type="submit" class="btn btn-valoracion">Añadir Valoración</button>
                             </form>
                         @endif
-                    @else
-                        <button class="btn btn-valoracion" disabled>Añadir Valoración</button>
                     @endif
                 </td>
                     
