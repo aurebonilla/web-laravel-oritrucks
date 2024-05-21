@@ -44,6 +44,7 @@
                 <p><strong>Teléfono:</strong> {{ $usuario->telefono }}</p>
                 <p><strong>Fecha de Nacimiento:</strong> {{ $usuario->fecha_nacimiento ? $usuario->fecha_nacimiento: 'No disponible' }}</p>
                 <p><strong>Dirección:</strong> {{ $usuario->direccion }}</p>
+                
             </div>
         @endif
     </div>

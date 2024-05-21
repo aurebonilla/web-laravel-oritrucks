@@ -54,6 +54,9 @@
                 <p><strong>Teléfono:</strong> {{ $usuario->telefono }}</p>
                 <p><strong>Fecha de Nacimiento:</strong> {{ $usuario->fecha_nacimiento ? $usuario->fecha_nacimiento: 'No disponible' }}</p>
                 <p><strong>Dirección:</strong> {{ $usuario->direccion }}</p>
+                <form action="{{ route('administradorUsuarios.edit', ['dni' => $usuario->dni]) }}" method="GET" style="display: inline-block;">
+                    <button type="submit" class="btn btn-modificar" style="margin-bottom: 20px;">Modificar</button>
+                </form>
             </div>
         @endif
     </div>

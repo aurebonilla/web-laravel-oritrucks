@@ -38,9 +38,6 @@
             <label for="apellidos">Apellidos:</label>
             <input type="text" id="apellidos" name="apellidos" value="{{ $usuario->apellidos}}">
 
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" value="{{ $usuario->dni }}">
-
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" value="{{ $usuario->email }}">
             
