@@ -30,7 +30,7 @@
             <input type="text" id="nombre_usuario" name="nombre_usuario" value="{{ $usuario->nombre_usuario }}">
 
             <label for="password">Contraseña:</label>
-            <input type="text" id="password" name="password" value="{{ $usuario->password }}">
+            <input type="text" id="password" name="password">
 
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" value="{{ $usuario->nombre }}">

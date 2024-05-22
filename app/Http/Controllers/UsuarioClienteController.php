@@ -10,6 +10,7 @@ use App\Models\Viaje;
 use App\Models\Conductor;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioClienteController extends Controller
 {
@@ -96,10 +97,10 @@ class UsuarioClienteController extends Controller
             return redirect()->back()->with('error', 'Usuario no encontrado');
         }
 
-        try{
+        try {
             $request->validate([
                 'nombre_usuario' => 'required',
-                'password' => 'required',
+                'password' => 'nullable',
                 'nombre' => 'required',
                 'apellidos' => 'required',
                 'email' => 'required|email',
@@ -109,7 +110,6 @@ class UsuarioClienteController extends Controller
             ],
             [
                 'nombre_usuario.required' => 'El usuario es obligatorio',
-                'password.required' => 'La contraseña es obligatorio',
                 'nombre.required' => 'El nombre es obligatorio',
                 'apellidos.required' => 'Los apellidos son obligatorios',
                 'email.required' => 'El email es obligatorio',
@@ -120,15 +120,25 @@ class UsuarioClienteController extends Controller
                 'fecha_nacimiento.before' => 'Debes ser mayor de edad para registrarte',
                 'direccion.required' => 'La direccion es obligatoria',
             ]);
-        }
-        catch(\Illuminate\Database\QueryException $e){
-            return redirect()->back()->withErrors(['error' => 'Error al modificar el usuario. Quizás ya existe un usuario con ese nombre, DNI ,email o telefono.']);
-        }
 
-        $usuario->update($request->all());
+            $input = $request->all();
 
-        return redirect()->route('usuarioCliente.show')->with('success', 'Usuario modificado con éxito');
+            if ($request->filled('password')) {
+                $input['password'] = Hash::make($request->password);
+            } else {
+                // No actualizar la contraseña si no se proporciona una nueva
+                unset($input['password']);
+            }
+
+            $usuario->update($input);
+
+            return redirect()->route('administradorUsuarios.index')->with('success', 'Usuario modificado con éxito');
+        }
+        catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->withErrors(['error' => 'Error al modificar el usuario. Quizás ya existe un usuario con ese nombre, DNI, email o teléfono.']);
+        }
     }
+
     /**
      * Show the form for creating a new resource.
      *
