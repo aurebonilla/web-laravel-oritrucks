@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Viaje;
+use App\Models\Conductor;
 use App\Models\Vehiculo;
 use App\Models\Usuario;
 use Illuminate\Database\Seeder;
@@ -36,5 +38,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsuarioSeeder ::class);
         $this->command->info('Usuario x dios seeded! ;)');
+        $this->call(ViajeSeeder ::class);
+        $this->command->info('Usuario x dios seeded! ;)');
+        $this->call(ValoracionSeeder ::class);
+        $this->command->info('Menudo coordinador más bueno que lo hace todo');
     }
 }

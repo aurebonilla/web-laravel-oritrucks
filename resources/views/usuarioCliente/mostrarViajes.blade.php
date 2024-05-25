@@ -153,6 +153,9 @@
                 <form action="{{ route('usuarioCliente.mostrarViajes') }}" method="GET" style="display: inline-block;">
                     <button type="submit" class="btn btn-refrescar">Refrescar</button>
                 </form>
+                <div style="border: 1px solid black; padding: 10px; margin: 10px;">
+                    <p>El botón de valoración saldrá cuando se haya realizado el viaje</p>
+                </div>
         </div>
     </table>
     <div class="pagination">
